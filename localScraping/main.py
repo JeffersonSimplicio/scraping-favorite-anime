@@ -1,6 +1,6 @@
 from bs4 import BeautifulSoup
 from readers import readFile
-from writers import writeTxt
+from writers import writeTxt, writeJson
 
 
 class FavoritesAnimes:
@@ -38,6 +38,9 @@ class FavoritesAnimes:
             )
         return name_thunb
 
+    def file_name_thunb(self) -> None:
+        writeJson(self.name_thunb())
+
 
 # Test Zone
 if __name__ == '__main__':
@@ -46,7 +49,4 @@ if __name__ == '__main__':
 
     betterAnime = FavoritesAnimes(soup)
 
-    x = betterAnime.name_thunb()
-
-    for i in x:
-        print(i)
+    betterAnime.file_name_thunb()
