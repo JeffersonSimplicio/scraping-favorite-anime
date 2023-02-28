@@ -4,12 +4,15 @@ from main import FavoritesAnimes
 
 
 def select_file():
-    path_file = str(
-        input("Qual arquivo deseja utilizar?(favorites-list-page.html) ")
-    ).strip()
-    path = 'favorites-list-page.html' if path_file == '' else path_file
-    code = readFile(path)
-    return code
+    text = "Qual arquivo deseja utilizar?(favorites-list-page.html) "
+    while True:
+        try:
+            path_file = str(input(text)).strip()
+            path = 'favorites-list-page.html' if path_file == '' else path_file
+            code = readFile(path)
+            return code
+        except FileNotFoundError:
+            print('Arquivo não encontrado')
 
 
 def select_option():
