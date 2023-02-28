@@ -1,5 +1,6 @@
 from bs4 import BeautifulSoup
 from readers import readFile
+from writers import writeTxt
 
 
 class FavoritesAnimes:
@@ -30,5 +31,4 @@ if __name__ == '__main__':
 
     list = betterAnime.list_favorites_name()
 
-    for name in list:
-        print(name)
+    writeTxt(list)
