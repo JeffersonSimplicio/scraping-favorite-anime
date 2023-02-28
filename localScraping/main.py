@@ -24,6 +24,20 @@ class FavoritesAnimes:
     def file_favorites(self) -> None:
         writeTxt(self.list_favorites_name())
 
+    def name_thunb(self) -> None:
+        favorites_list = self.__code.select('div.card-vertical')
+        name_thunb = []
+        for anime in favorites_list:
+            thunb = anime.select_one('div.card-vertical-img img')['src']
+            name = anime.select_one('div.card-vertical-title').string
+            name_thunb.append(
+                {
+                    'name': name,
+                    'thunb_url': thunb
+                }
+            )
+        return name_thunb
+
 
 # Test Zone
 if __name__ == '__main__':
@@ -32,4 +46,7 @@ if __name__ == '__main__':
 
     betterAnime = FavoritesAnimes(soup)
 
-    betterAnime.file_favorites()
+    x = betterAnime.name_thunb()
+
+    for i in x:
+        print(i)
