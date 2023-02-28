@@ -17,8 +17,10 @@ def writeJson(names_thunbs: list, nameFile: str = 'FavoritesAnimes.json'):
 
 
 def writeImg(image_url: str, name: str) -> None:
+    chars = '.,!?'
     path = name.strip().lower()
     path = path.replace(" ", "_").replace(":", "_").replace("/", "_")
+    path = path.translate(str.maketrans('', '', chars))
     img_data = requests.get(image_url).content
 
     with open(
