@@ -34,13 +34,26 @@ Qual opção escolhida(Padrão - 2): """
             print("Selecione uma opção valida!")
 
 
+def operation(favorite: FavoritesAnimes, selected: int):
+    if selected == 1:
+        favorite.file_favorites()
+    elif selected == 2:
+        favorite.file_favorites_url()
+    elif selected == 3:
+        favorite.file_name_thunb()
+    elif selected == 4:
+        favorite.file_name_thunb_local()
+    else:
+        print('Opção inexistente!')
+
+
 def interface():
     code = select_file()
     soup = BeautifulSoup(code, "html.parser")
     betterAnime = FavoritesAnimes(soup)
     print(f'Você possui {betterAnime.len_favorites()} animes favoritos')
     selected = select_option()
-    print(selected)
+    operation(betterAnime, selected)
 
 
 interface()
