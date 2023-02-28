@@ -16,7 +16,7 @@ def writeJson(names_thunbs: list, nameFile: str = 'FavoritesAnimes.json'):
     print('Escrita concluída')
 
 
-async def writeImg(image_url: str, name: str) -> None:
+def writeImg(image_url: str, name: str) -> None:
     path = name.strip().lower()
     path = path.replace(" ", "_").replace(":", "_").replace("/", "_")
     img_data = requests.get(image_url).content
