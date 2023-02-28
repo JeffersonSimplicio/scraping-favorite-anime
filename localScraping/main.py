@@ -51,7 +51,7 @@ class FavoritesAnimes:
             )
         return name_thunb
 
-    def name_thunb_local(self) -> None:
+    def __name_thunb_local(self) -> None:
         print('Por favor, aguarde! Isso pode demorar um pouco...')
         favorites_list = self.__get_cards()
         name_thunb = []
@@ -85,7 +85,7 @@ class FavoritesAnimes:
         writeJson(self.name_thunb())
 
     def file_name_thunb_local(self) -> None:
-        writeJson(self.name_thunb_local())
+        writeJson(self.__name_thunb_local())
 
 
 # Test Zone
