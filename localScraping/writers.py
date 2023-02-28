@@ -2,10 +2,10 @@ import json
 import requests
 
 
-def writeTxt(names: list, nameFile: str = 'FavoritesAnimes.txt') -> None:
+def writeTxt(animes_list: list, nameFile: str = 'FavoritesAnimes.txt') -> None:
     with open(nameFile, 'w') as file:
-        for name in names:
-            file.write(f'{name}\n')
+        for anime in animes_list:
+            file.write(f'{anime}\n')
     print('Escrita concluída')
 
 

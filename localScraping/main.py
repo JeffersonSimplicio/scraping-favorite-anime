@@ -37,7 +37,7 @@ class FavoritesAnimes:
         names_list = [divName.string for divName in favorites_list]
         return names_list
 
-    def name_thunb(self) -> None:
+    def name_thunb(self):
         favorites_list = self.__get_cards()
         name_thunb = []
         for anime in favorites_list:
@@ -51,7 +51,7 @@ class FavoritesAnimes:
             )
         return name_thunb
 
-    def __name_thunb_local(self) -> None:
+    def __name_thunb_local(self):
         print('Por favor, aguarde! Isso pode demorar um pouco...')
         favorites_list = self.__get_cards()
         name_thunb = []
@@ -81,6 +81,14 @@ class FavoritesAnimes:
     def file_favorites(self) -> None:
         writeTxt(self.list_favorites_name())
 
+    def file_favorites_url(self) -> None:
+        list_animes = self.name_thunb()
+        format_list = [
+            f'{anime["name"]} - {anime["thunb_url"]}\n'
+            for anime in list_animes
+        ]
+        writeTxt(format_list)
+
     def file_name_thunb(self) -> None:
         writeJson(self.name_thunb())
 
@@ -95,4 +103,4 @@ if __name__ == '__main__':
 
     betterAnime = FavoritesAnimes(soup)
 
-    betterAnime.file_name_thunb_local()
+    betterAnime.file_favorites_url()
