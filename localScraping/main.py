@@ -21,6 +21,9 @@ class FavoritesAnimes:
         names_list = [divName.string for divName in favorites_list]
         return names_list
 
+    def file_favorites(self) -> None:
+        writeTxt(self.list_favorites_name())
+
 
 # Test Zone
 if __name__ == '__main__':
@@ -29,6 +32,4 @@ if __name__ == '__main__':
 
     betterAnime = FavoritesAnimes(soup)
 
-    list = betterAnime.list_favorites_name()
-
-    writeTxt(list)
+    betterAnime.file_favorites()
