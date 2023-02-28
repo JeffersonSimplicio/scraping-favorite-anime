@@ -15,6 +15,10 @@ class FavoritesAnimes:
     def len_favorites(self) -> int:
         return len(self.__code.find_all('article'))
 
+    def __get_cards(self):
+        cards_list = self.__code.select('div.card-vertical')
+        return cards_list
+
     def list_favorites_name(self) -> list:
         favorites_list = self.__code.find_all(
             'div',
@@ -24,7 +28,7 @@ class FavoritesAnimes:
         return names_list
 
     def name_thunb(self) -> None:
-        favorites_list = self.__code.select('div.card-vertical')
+        favorites_list = self.__get_cards()
         name_thunb = []
         for anime in favorites_list:
             thunb = anime.select_one('div.card-vertical-img img')['src']
@@ -39,7 +43,7 @@ class FavoritesAnimes:
 
     def name_thunb_local(self) -> None:
         print('Por favor, aguarde! Isso pode demorar um pouco...')
-        favorites_list = self.__code.select('div.card-vertical')
+        favorites_list = self.__get_cards()
         name_thunb = []
 
         try:
