@@ -12,11 +12,35 @@ def select_file():
     return code
 
 
+def select_option():
+    option = ['', '1', '2', '3', '4']
+    text = """1 - Lista de nomes(txt)
+2 - Lista com nome e URL da thunb(txt)
+3 - Lista com nome e URL da thunb(json)
+4 - Lista com nome e path da thumb(download da thunb)(json)
+
+Qual opção escolhida(Padrão - 2): """
+
+    while True:
+        try:
+            selected = str(input(text))
+            if selected in option:
+                if selected == option[0]:
+                    print('Foi selecionada a opção padrão - opção 2')
+                    return 2
+                return int(selected)
+            raise ValueError
+        except ValueError:
+            print("Selecione uma opção valida!")
+
+
 def interface():
     code = select_file()
     soup = BeautifulSoup(code, "html.parser")
     betterAnime = FavoritesAnimes(soup)
     print(f'Você possui {betterAnime.len_favorites()} animes favoritos')
+    selected = select_option()
+    print(selected)
 
 
 interface()
