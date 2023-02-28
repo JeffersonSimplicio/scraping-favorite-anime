@@ -19,6 +19,11 @@ class FavoritesAnimes:
         cards_list = self.__code.select('div.card-vertical')
         return cards_list
 
+    @staticmethod
+    def __get_name(anime):
+        name = anime.select_one('div.card-vertical-title').string
+        return name
+
     def list_favorites_name(self) -> list:
         favorites_list = self.__code.find_all(
             'div',
@@ -32,7 +37,7 @@ class FavoritesAnimes:
         name_thunb = []
         for anime in favorites_list:
             thunb = anime.select_one('div.card-vertical-img img')['src']
-            name = anime.select_one('div.card-vertical-title').string
+            name = self.__get_name(anime)
             name_thunb.append(
                 {
                     'name': name,
@@ -55,7 +60,7 @@ class FavoritesAnimes:
         for anime in favorites_list:
 
             thunb_url = anime.select_one('div.card-vertical-img img')['src']
-            name = anime.select_one('div.card-vertical-title').string
+            name = self.__get_name(anime)
 
             path = writeImg(thunb_url, name)
 
