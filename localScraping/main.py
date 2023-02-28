@@ -1,6 +1,5 @@
 from os import mkdir
 from shutil import rmtree
-import asyncio
 from bs4 import BeautifulSoup
 from readers import readFile
 from writers import writeTxt, writeJson, writeImg
@@ -38,7 +37,8 @@ class FavoritesAnimes:
             )
         return name_thunb
 
-    async def name_thunb_local(self) -> None:
+    def name_thunb_local(self) -> None:
+        print('Por favor, aguarde! Isso pode demorar um pouco...')
         favorites_list = self.__code.select('div.card-vertical')
         name_thunb = []
 
@@ -53,7 +53,7 @@ class FavoritesAnimes:
             thunb_url = anime.select_one('div.card-vertical-img img')['src']
             name = anime.select_one('div.card-vertical-title').string
 
-            path = await writeImg(thunb_url, name)
+            path = writeImg(thunb_url, name)
 
             name_thunb.append(
                 {
@@ -70,6 +70,9 @@ class FavoritesAnimes:
     def file_name_thunb(self) -> None:
         writeJson(self.name_thunb())
 
+    def file_name_thunb_local(self) -> None:
+        writeJson(self.name_thunb_local())
+
 
 # Test Zone
 if __name__ == '__main__':
@@ -78,5 +81,4 @@ if __name__ == '__main__':
 
     betterAnime = FavoritesAnimes(soup)
 
-    x = asyncio.run(betterAnime.name_thunb_local())
-    print(x)
+    betterAnime.file_name_thunb_local()
