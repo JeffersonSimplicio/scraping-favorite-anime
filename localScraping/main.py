@@ -42,16 +42,16 @@ class FavoritesAnimes:
         favorites_list = self.__code.select('div.card-vertical')
         name_thunb = []
 
+        try:
+            mkdir('./thunbs')
+        except FileExistsError:
+            rmtree('./thunbs')
+            mkdir('./thunbs')
+
         for anime in favorites_list:
 
             thunb_url = anime.select_one('div.card-vertical-img img')['src']
             name = anime.select_one('div.card-vertical-title').string
-
-            try:
-                mkdir('./thunbs')
-            except FileExistsError:
-                rmtree('./thunbs')
-                mkdir('./thunbs')
 
             path = await writeImg(thunb_url, name)
 
