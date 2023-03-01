@@ -33,3 +33,9 @@ Todo o projeto foi desenvolvido em **Python**, para garantir um ambiente isolado
 8. Caso tenha seguido as dicas dadas anteriormente, basta clicar Enter; do contrario sera necessário informar a rota ate o html
 
 9.  O programa lhe dara 4(quatro) opções, escolha uma delas, digite o número e pressione Enter. Você pode usar o programa quantas vezes quiser e testar cada opção
+
+## O que cada opção faz
+ - `1 - Lista de nomes(txt)`: Gera um arquivo como o nome *FavoritesAnimes.txt*, com o nome de todos os animes favoritados no site
+ - `2 - Lista com nome e URL da thunb(txt)`: Gera um arquivo como o nome *FavoritesAnimes.txt*, com o nome de todos os animes favoritados no site e ao lado do nome a URL para sua capa
+ - `3 - Lista com nome e URL da thunb(json)`: Gera um arquivo como o nome *FavoritesAnimes.json*, com uma lista de objetos contendo nome e URL da capa
+ - `4 - Lista com nome e path da thumb(download da thunb)(json)`: Gera um arquivo como o nome *FavoritesAnimes.json* e também uma pasta *thunbs*, na pasta esta todas as capas dos animes favoritados, no .json esta uma lista de objetos contendo nome e o path para capa na pasta thunbs
