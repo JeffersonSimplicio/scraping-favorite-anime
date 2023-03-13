@@ -47,7 +47,7 @@ Todo o projeto foi desenvolvido em **Python**, para garantir um ambiente isolado
 </details>
 <details>
   <summary><strong>Por que programa não faz a raspagem direto na web?</strong></summary>
-  Essa funcionalidade também está em meus planos. Entretanto, o site usa reCaptcha dificultando tal tarefa.
+  O site usa reCaptcha dificultando tal tarefa, além disso, muitos usuários não se sentiriam confortáveis colocando suas credenciais.
 </details>
 <details>
   <summary><strong>É possível utilizar o programa também no Linux?</strong></summary>
