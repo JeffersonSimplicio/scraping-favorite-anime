@@ -127,7 +127,7 @@ venv.bak/
 dmypy.json
 
 # My HTMLs
-favorites-list-NF.html
+/pages
 favorites-list-page.html
 
 /thunbs
