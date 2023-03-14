@@ -40,16 +40,32 @@ class FavoritesAnimes():
     def file_name_thunb_local(self) -> None:
         self.__anime_strategy.file_name_thunb_local(self.__soup)
 
+    def identifier(self) -> bool:
+        return self.__anime_strategy.identifier(self.__soup)
+
 
 # Test Zone
 if __name__ == '__main__':
     from strategy.baStrategy import BetterAnimeStrategy
+    from strategy.anihubStrategy import AnihubStrategy
     from readers import readFile
 
-    code = readFile('favorites-list-page.html')
+    ba_nf = 'pages/betterAnime/betterAnime-NF.html'
+    ba_page = 'pages/betterAnime/betterAnime_page.html'
+    ba_body = 'pages/betterAnime/betterAnime_body.html'
+
+    anihub_nf = 'pages/anihub/anihub-NF.html'
+    anihub_page = 'pages/anihub/anihub_page.html'
+    anihub_body = 'pages/anihub/anihub_body.html'
+
+    code = readFile(anihub_body)
     soup = BeautifulSoup(code, "html.parser")
 
+    anihub = FavoritesAnimes(AnihubStrategy, soup)
     betterAnime = FavoritesAnimes(BetterAnimeStrategy, soup)
-    result = betterAnime.code()
 
-    print(result)
+    resultAni = anihub.identifier()
+    resultBA = betterAnime.identifier()
+
+    print(resultAni)
+    print(resultBA)

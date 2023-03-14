@@ -69,3 +69,13 @@ class BetterAnimeStrategy(AnimeStrategy):
     @classmethod
     def file_name_thunb_local(cls, code: BeautifulSoup) -> None:
         return super().file_name_thunb_local(cls.list_name_thunb_local(code))
+
+    @staticmethod
+    def identifier(code: BeautifulSoup) -> bool:
+        if (code.select_one('h1.font-zero')):
+            return True
+        elif (code.select_one('li.nav-item')):
+            return True
+        elif (code.select_one('div.tab-pane')):
+            return True
+        return False

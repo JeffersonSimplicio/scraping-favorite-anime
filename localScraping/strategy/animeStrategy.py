@@ -127,3 +127,7 @@ class AnimeStrategy(ABC):  # Interface
         list_name_thunb_local
     ) -> None:
         writeJson(list_name_thunb_local)
+
+    @staticmethod
+    def identifier(code: BeautifulSoup) -> bool:
+        raise NotImplementedError
