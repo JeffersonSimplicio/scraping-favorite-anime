@@ -11,12 +11,12 @@ class BetterAnimeStrategy(AnimeStrategy):
 
     @classmethod
     def __get_names(cls, code: BeautifulSoup):  # -> ResultSet[Tag]
-        favorites_list = code.select('div.card-vertical-title')
+        favorites_list = code.select('div.card-vertical-title h3')
         return favorites_list
 
     @staticmethod
     def __get_name(anime: str) -> str:
-        name = anime.select_one('div.card-vertical-title').string
+        name = anime.select_one('div.card-vertical-title h3').string
         return name
 
     @staticmethod
