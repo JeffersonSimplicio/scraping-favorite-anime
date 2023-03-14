@@ -24,9 +24,9 @@ class AnimeStrategy(ABC):  # Interface
         raise NotImplementedError
 
     # Get data from HTML
-    @abstractmethod
+    @classmethod
     def code(cls, code: BeautifulSoup) -> str:
-        raise NotImplementedError
+        return code.prettify()
 
     @abstractmethod
     def len_favorites(cls, code: BeautifulSoup) -> int:

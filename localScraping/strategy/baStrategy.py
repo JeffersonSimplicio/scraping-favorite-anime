@@ -27,7 +27,7 @@ class BetterAnimeStrategy(AnimeStrategy):
     # Get data from HTML
     @classmethod
     def code(cls, code: BeautifulSoup) -> str:
-        return code.prettify()
+        return super().code(code)
 
     @classmethod
     def len_favorites(cls, code: BeautifulSoup) -> int:

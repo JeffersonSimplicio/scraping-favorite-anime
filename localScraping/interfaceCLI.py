@@ -1,6 +1,7 @@
 from bs4 import BeautifulSoup
 from readers import readFile
 from main import FavoritesAnimes
+from strategy.baStrategy import BetterAnimeStrategy
 
 
 def select_file():
@@ -53,7 +54,7 @@ def operation(favorite: FavoritesAnimes, selected: int):
 def interface():
     code = select_file()
     soup = BeautifulSoup(code, "html.parser")
-    betterAnime = FavoritesAnimes(soup)
+    betterAnime = FavoritesAnimes(BetterAnimeStrategy, soup)
     print(f'Você possui {betterAnime.len_favorites()} animes favoritos')
     selected = select_option()
     operation(betterAnime, selected)
