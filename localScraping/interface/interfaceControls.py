@@ -1,5 +1,5 @@
-from readers import readFile
-from main import FavoritesAnimes
+from utils.readers import readFile
+from strategy.main import FavoritesAnimes
 
 
 def select_file():

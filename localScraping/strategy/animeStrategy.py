@@ -2,7 +2,7 @@ from os import mkdir
 from shutil import rmtree
 from abc import ABC, abstractmethod
 from bs4 import BeautifulSoup
-from writers import writeTxt, writeJson, writeImg
+from utils.writers import writeTxt, writeJson, writeImg
 
 
 class AnimeStrategy(ABC):  # Interface

@@ -1,5 +1,5 @@
 from bs4 import BeautifulSoup
-from main import FavoritesAnimes
+from strategy.main import FavoritesAnimes
 from strategy.baStrategy import BetterAnimeStrategy
 from interface.interfaceControls import select_file, select_option, operation
 
