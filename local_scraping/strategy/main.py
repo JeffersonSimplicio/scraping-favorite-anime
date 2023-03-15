@@ -1,4 +1,4 @@
-from strategy.animeStrategy import AnimeStrategy
+from local_scraping.strategy.anime_strategy import AnimeStrategy
 from bs4 import BeautifulSoup
 
 
