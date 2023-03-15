@@ -1,7 +1,7 @@
 from bs4 import BeautifulSoup
 from strategy.main import FavoritesAnimes
-from local_scraping.strategy.ba_strategy import BetterAnimeStrategy
-from local_scraping.interface.interface_controls import (
+from strategy.ba_strategy import BetterAnimeStrategy
+from interface.interface_controls import (
     select_file,
     select_option,
     operation

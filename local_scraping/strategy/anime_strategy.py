@@ -2,7 +2,7 @@ from os import mkdir
 from shutil import rmtree
 from abc import ABC, abstractmethod
 from bs4 import BeautifulSoup
-from utils.writers import writeTxt, writeJson, writeImg
+from utils.writers import write_txt, write_json, write_img
 
 
 class AnimeStrategy(ABC):  # Interface
@@ -83,7 +83,7 @@ class AnimeStrategy(ABC):  # Interface
             name = get_name(anime)
             thunb_url = get_thunb(anime)
 
-            path = writeImg(thunb_url, name)
+            path = write_img(thunb_url, name)
 
             name_thunb.append(
                 {
@@ -100,7 +100,7 @@ class AnimeStrategy(ABC):  # Interface
         cls,
         list_favorites_name
     ) -> None:
-        writeTxt(list_favorites_name)
+        write_txt(list_favorites_name)
 
     @classmethod
     def file_favorites_url(
@@ -112,21 +112,21 @@ class AnimeStrategy(ABC):  # Interface
             f'{anime["name"]} - {anime["thunb_url"]}\n'
             for anime in list_animes
         ]
-        writeTxt(format_list)
+        write_txt(format_list)
 
     @classmethod
     def file_name_thunb(
         cls,
         list_name_thunb
     ) -> None:
-        writeJson(list_name_thunb)
+        write_json(list_name_thunb)
 
     @classmethod
     def file_name_thunb_local(
         cls,
         list_name_thunb_local
     ) -> None:
-        writeJson(list_name_thunb_local)
+        write_json(list_name_thunb_local)
 
     @staticmethod
     def identifier(code: BeautifulSoup) -> bool:

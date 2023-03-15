@@ -1,4 +1,4 @@
-from utils.readers import readFile
+from utils.readers import read_file
 from strategy.main import FavoritesAnimes
 
 
@@ -8,7 +8,7 @@ def select_file():
         try:
             path_file = str(input(text)).strip()
             path = 'favorites-list-page.html' if path_file == '' else path_file
-            code = readFile(path)
+            code = read_file(path)
             return code
         except FileNotFoundError:
             print('Arquivo não encontrado')
