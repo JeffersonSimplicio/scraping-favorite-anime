@@ -2,32 +2,30 @@ from bs4 import BeautifulSoup
 from local_scraping.strategy.anime_strategy import AnimeStrategy
 
 
-class AnihubStrategy(AnimeStrategy):
+class BetterAnimeStrategy(AnimeStrategy):
     # Default name files
-    DEFAULT_NAME_JSON = 'anihub-favorites.json'
-    DEFAULT_NAME_TXT = 'anihub-favorites.txt'
+    DEFAULT_NAME_JSON = 'betteranime-favorites.json'
+    DEFAULT_NAME_TXT = 'betteranime-favorites.txt'
 
     # Filters
     @classmethod
     def __get_cards(cls, code: BeautifulSoup):  # -> ResultSet[Tag]
-        cards_list = code.select('div.animes')
+        cards_list = code.select('div.card-vertical')
         return cards_list
 
     @classmethod
     def __get_names(cls, code: BeautifulSoup):  # -> ResultSet[Tag]
-        favorites_list = code.select(
-            'div.animes a:first-of-type h1.bottom-div'
-        )
+        favorites_list = code.select('div.card-vertical-title h3')
         return favorites_list
 
     @staticmethod
     def __get_name(anime: str) -> str:
-        name = anime.select_one('a:first-of-type h1.bottom-div').string
+        name = anime.select_one('div.card-vertical-title h3').string
         return name
 
     @staticmethod
     def __get_thunb(anime: str) -> str:
-        thunb = anime.select_one('a:first-of-type img')['src']
+        thunb = anime.select_one('div.card-vertical-img img')['src']
         return thunb
 
     # Get data from HTML
@@ -37,7 +35,7 @@ class AnihubStrategy(AnimeStrategy):
 
     @classmethod
     def len_favorites(cls, code: BeautifulSoup) -> int:
-        return len(code.select('div.animes'))
+        return len(code.find_all('article'))
 
     @classmethod
     def list_favorites_name(cls, code: BeautifulSoup) -> list:
@@ -90,10 +88,10 @@ class AnihubStrategy(AnimeStrategy):
 
     @staticmethod
     def identifier(code: BeautifulSoup) -> bool:
-        if (code.select_one('h1.cover-photo')):
+        if (code.select_one('h1.font-zero')):
             return True
-        elif (code.select_one('div.grid4.t-center')):
+        elif (code.select_one('li.nav-item')):
             return True
-        elif (code.select_one('div.grid4.grid5')):
+        elif (code.select_one('div.tab-pane')):
             return True
         return False

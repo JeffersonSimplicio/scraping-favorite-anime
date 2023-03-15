@@ -98,34 +98,46 @@ class AnimeStrategy(ABC):  # Interface
     @classmethod
     def file_favorites(
         cls,
-        list_favorites_name
+        list_favorites_name,
+        name_file: str = ''
     ) -> None:
+        if (name_file != ''):
+            write_txt(list_favorites_name, name_file)
         write_txt(list_favorites_name)
 
     @classmethod
     def file_favorites_url(
         cls,
-        list_name_thunb
+        list_name_thunb,
+        name_file: str = ''
     ) -> None:
         list_animes = list_name_thunb
         format_list = [
             f'{anime["name"]} - {anime["thunb_url"]}\n'
             for anime in list_animes
         ]
+        if (name_file != ''):
+            write_txt(format_list, name_file)
         write_txt(format_list)
 
     @classmethod
     def file_name_thunb(
         cls,
-        list_name_thunb
+        list_name_thunb,
+        name_file: str = ''
     ) -> None:
+        if (name_file != ''):
+            write_json(list_name_thunb, name_file)
         write_json(list_name_thunb)
 
     @classmethod
     def file_name_thunb_local(
         cls,
-        list_name_thunb_local
+        list_name_thunb_local,
+        name_file: str = ''
     ) -> None:
+        if (name_file != ''):
+            write_json(list_name_thunb_local, name_file)
         write_json(list_name_thunb_local)
 
     @staticmethod
