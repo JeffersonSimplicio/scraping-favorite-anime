@@ -2,21 +2,24 @@ import json
 import requests
 
 
-def writeTxt(animes_list: list, nameFile: str = 'FavoritesAnimes.txt') -> None:
-    with open(nameFile, 'w') as file:
+def write_txt(
+        animes_list: list,
+        name_file: str = 'FavoritesAnimes.txt'
+) -> None:
+    with open(name_file, 'w') as file:
         for anime in animes_list:
             file.write(f'{anime}\n')
     print('Escrita concluída')
 
 
-def writeJson(names_thunbs: list, nameFile: str = 'FavoritesAnimes.json'):
-    with open(nameFile, 'w') as file:
+def write_json(names_thunbs: list, name_file: str = 'FavoritesAnimes.json'):
+    with open(name_file, 'w') as file:
         json_to_write = json.dumps(names_thunbs)
         file.write(json_to_write)
     print('Escrita concluída')
 
 
-def writeImg(image_url: str, name: str) -> None:
+def write_img(image_url: str, name: str) -> None:
     chars = '.,!?'
     path = name.strip().lower()
     path = path.replace(" ", "_").replace(":", "_").replace("/", "_")

@@ -1,6 +1,8 @@
-from bs4 import BeautifulSoup
-from readers import readFile
-from main import FavoritesAnimes
+from utils.readers import read_file
+from utils.web_site_identifier import web_site_identifier
+from strategy.main import FavoritesAnimes
+from strategy.ba_strategy import BetterAnimeStrategy
+from strategy.anihub_strategy import AnihubStrategy
 
 
 def select_file():
@@ -9,10 +11,38 @@ def select_file():
         try:
             path_file = str(input(text)).strip()
             path = 'favorites-list-page.html' if path_file == '' else path_file
-            code = readFile(path)
+            code = read_file(path)
             return code
         except FileNotFoundError:
             print('Arquivo não encontrado')
+
+
+def select_filter(soup):
+    try:
+        filter = web_site_identifier(soup)
+        return filter
+    except ValueError:
+        option = ['', '1', '2']
+        text = '''1 - BetterAnime
+2 - Anihub
+
+Qual opção escolhida(Padrão - 1): '''
+        print('Não foi possível identificar a qual site pertence o código')
+
+        while True:
+            try:
+                selected = str(input(text)).strip()
+                if selected in option:
+                    if selected == option[0]:
+                        print('Foi selecionada a opção padrão - opção 1')
+                        return BetterAnimeStrategy
+                    elif selected == option[1]:
+                        return BetterAnimeStrategy
+                    elif selected == option[2]:
+                        return AnihubStrategy
+                raise ValueError
+            except ValueError:
+                print("Selecione uma opção valida!")
 
 
 def select_option():
@@ -26,7 +56,7 @@ Qual opção escolhida(Padrão - 2): """
 
     while True:
         try:
-            selected = str(input(text))
+            selected = str(input(text)).strip()
             if selected in option:
                 if selected == option[0]:
                     print('Foi selecionada a opção padrão - opção 2')
@@ -48,15 +78,3 @@ def operation(favorite: FavoritesAnimes, selected: int):
         favorite.file_name_thunb_local()
     else:
         print('Opção inexistente!')
-
-
-def interface():
-    code = select_file()
-    soup = BeautifulSoup(code, "html.parser")
-    betterAnime = FavoritesAnimes(soup)
-    print(f'Você possui {betterAnime.len_favorites()} animes favoritos')
-    selected = select_option()
-    operation(betterAnime, selected)
-
-
-interface()
