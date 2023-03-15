@@ -69,12 +69,12 @@ Qual opção escolhida(Padrão - 2): """
 
 def operation(favorite: FavoritesAnimes, selected: int):
     if selected == 1:
-        favorite.file_favorites()
+        favorite.create_txt_list_favorites()
     elif selected == 2:
-        favorite.file_favorites_url()
+        favorite.create_txt_list_favorites_url()
     elif selected == 3:
-        favorite.file_name_thunb()
+        favorite.create_json_list_favorites_url()
     elif selected == 4:
-        favorite.file_name_thunb_local()
+        favorite.create_json_list_favorites_local()
     else:
         print('Opção inexistente!')

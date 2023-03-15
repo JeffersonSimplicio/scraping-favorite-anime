@@ -28,17 +28,17 @@ class FavoritesAnimes():
         return self.__anime_strategy.list_name_thunb_local(self.__soup)
 
     # Create file
-    def file_favorites(self) -> None:
-        self.__anime_strategy.file_favorites(self.__soup)
+    def create_txt_list_favorites(self) -> None:
+        self.__anime_strategy.create_txt_list_favorites(self.__soup)
 
-    def file_favorites_url(self) -> None:
-        self.__anime_strategy.file_favorites_url(self.__soup)
+    def create_txt_list_favorites_url(self) -> None:
+        self.__anime_strategy.create_txt_list_favorites_url(self.__soup)
 
-    def file_name_thunb(self) -> None:
-        self.__anime_strategy.file_name_thunb(self.__soup)
+    def create_json_list_favorites_url(self) -> None:
+        self.__anime_strategy.create_json_list_favorites_url(self.__soup)
 
-    def file_name_thunb_local(self) -> None:
-        self.__anime_strategy.file_name_thunb_local(self.__soup)
+    def create_json_list_favorites_local(self) -> None:
+        self.__anime_strategy.create_json_list_favorites_local(self.__soup)
 
     def identifier(self) -> bool:
         return self.__anime_strategy.identifier(self.__soup)

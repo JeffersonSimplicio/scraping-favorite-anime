@@ -96,7 +96,7 @@ class AnimeStrategy(ABC):  # Interface
 
     # Create file
     @classmethod
-    def file_favorites(
+    def create_txt_list_favorites(
         cls,
         list_favorites_name,
         name_file: str = ''
@@ -106,7 +106,7 @@ class AnimeStrategy(ABC):  # Interface
         write_txt(list_favorites_name)
 
     @classmethod
-    def file_favorites_url(
+    def create_txt_list_favorites_url(
         cls,
         list_name_thunb,
         name_file: str = ''
@@ -121,7 +121,7 @@ class AnimeStrategy(ABC):  # Interface
         write_txt(format_list)
 
     @classmethod
-    def file_name_thunb(
+    def create_json_list_favorites_url(
         cls,
         list_name_thunb,
         name_file: str = ''
@@ -131,7 +131,7 @@ class AnimeStrategy(ABC):  # Interface
         write_json(list_name_thunb)
 
     @classmethod
-    def file_name_thunb_local(
+    def create_json_list_favorites_local(
         cls,
         list_name_thunb_local,
         name_file: str = ''

@@ -59,29 +59,29 @@ class BetterAnimeStrategy(AnimeStrategy):
 
     # Create file
     @classmethod
-    def file_favorites(cls, code: BeautifulSoup) -> None:
-        super().file_favorites(
+    def create_txt_list_favorites(cls, code: BeautifulSoup) -> None:
+        super().create_txt_list_favorites(
             cls.list_favorites_name(code),
             cls.DEFAULT_NAME_TXT
         )
 
     @classmethod
-    def file_favorites_url(cls, code: BeautifulSoup) -> None:
-        return super().file_favorites_url(
+    def create_txt_list_favorites_url(cls, code: BeautifulSoup) -> None:
+        return super().create_txt_list_favorites_url(
             cls.list_name_thunb(code),
             cls.DEFAULT_NAME_TXT
         )
 
     @classmethod
-    def file_name_thunb(cls, code: BeautifulSoup) -> None:
-        return super().file_name_thunb(
+    def create_json_list_favorites_url(cls, code: BeautifulSoup) -> None:
+        return super().create_json_list_favorites_url(
             cls.list_name_thunb(code),
             cls.DEFAULT_NAME_JSON
         )
 
     @classmethod
-    def file_name_thunb_local(cls, code: BeautifulSoup) -> None:
-        return super().file_name_thunb_local(
+    def create_json_list_favorites_local(cls, code: BeautifulSoup) -> None:
+        return super().create_json_list_favorites_local(
             cls.list_name_thunb_local(code),
             cls.DEFAULT_NAME_JSON
         )
