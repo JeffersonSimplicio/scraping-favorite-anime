@@ -102,7 +102,7 @@ class AnimeStrategy(ABC):  # Interface
         name_file: str = ''
     ) -> None:
         if (name_file != ''):
-            write_txt(list_favorites_name, name_file)
+            return write_txt(list_favorites_name, name_file)
         write_txt(list_favorites_name)
 
     @classmethod
@@ -117,7 +117,7 @@ class AnimeStrategy(ABC):  # Interface
             for anime in list_animes
         ]
         if (name_file != ''):
-            write_txt(format_list, name_file)
+            return write_txt(format_list, name_file)
         write_txt(format_list)
 
     @classmethod
@@ -127,7 +127,7 @@ class AnimeStrategy(ABC):  # Interface
         name_file: str = ''
     ) -> None:
         if (name_file != ''):
-            write_json(list_name_thunb, name_file)
+            return write_json(list_name_thunb, name_file)
         write_json(list_name_thunb)
 
     @classmethod
@@ -137,7 +137,7 @@ class AnimeStrategy(ABC):  # Interface
         name_file: str = ''
     ) -> None:
         if (name_file != ''):
-            write_json(list_name_thunb_local, name_file)
+            return write_json(list_name_thunb_local, name_file)
         write_json(list_name_thunb_local)
 
     @staticmethod

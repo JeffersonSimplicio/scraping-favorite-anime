@@ -1,5 +1,5 @@
 from bs4 import BeautifulSoup
-from local_scraping.strategy.anime_strategy import AnimeStrategy
+from strategy.anime_strategy import AnimeStrategy
 
 
 class BetterAnimeStrategy(AnimeStrategy):

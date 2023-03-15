@@ -1,6 +1,6 @@
 from enum import Enum
-from local_scraping.strategy.anihub_strategy import AnihubStrategy
-from local_scraping.strategy.ba_strategy import BetterAnimeStrategy
+from strategy.anihub_strategy import AnihubStrategy
+from strategy.ba_strategy import BetterAnimeStrategy
 
 
 class Strategys(Enum):

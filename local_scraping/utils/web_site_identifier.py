@@ -1,5 +1,5 @@
 from bs4 import BeautifulSoup
-from local_scraping.strategy.list_stratege import Strategys
+from strategy.list_stratege import Strategys
 
 
 def web_site_identifier(soup: BeautifulSoup):

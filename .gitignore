@@ -132,5 +132,7 @@ favorites-list-page.html
 
 /thunbs
 
-FavoritesAnimes.json
-FavoritesAnimes.txt
+# My results
+FavoritesAnimes.*
+betteranime-favorites.*
+anihub-favorites.*
