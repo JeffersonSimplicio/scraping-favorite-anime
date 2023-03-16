@@ -13,6 +13,7 @@ Todo o projeto foi desenvolvido em **Python**, para garantir um ambiente isolado
 
 ## Utilização
 1. Baixe o executável do arquivo executável ([Download](https://github.com/JeffersonSimplicio/scraping-favorite-anime/raw/main/anime_scrapingV2.0.exe))
+  <!-- - ⚠️: O Windows pode identificar o arquivo como virus, não se preocupe, o executavel foi gerando com Pyinstaller a partir do código-fonte. Caso não se sinta confortale, é possivel usar diretamente no código-fonte.  -->
 
 2. Faça login do Better Anime e navegue até a [página de perfil](https://betteranime.net/minha-conta)
 
@@ -35,15 +36,15 @@ Todo o projeto foi desenvolvido em **Python**, para garantir um ambiente isolado
 9.  O programa lhe dará 4(quatro) opções, escolha uma delas, digite o número e pressione Enter. Você pode usar o programa quantas vezes quiser e testar cada opção
 
 ## O que cada opção faz
- - `1 - Lista de nomes(txt)`: Gera um arquivo como o nome *FavoritesAnimes.txt*, com o nome de todos os animes favoritados no site
+  - `1 - Lista de nomes(txt)`: Gera um arquivo como o nome *FavoritesAnimes.txt*, com o nome de todos os animes favoritados no site
  - `2 - Lista com nome e URL da thunb(txt)`: Gera um arquivo como o nome *FavoritesAnimes.txt*, com o nome de todos os animes favoritados no site e ao lado do nome a URL para sua capa
  - `3 - Lista com nome e URL da thunb(json)`: Gera um arquivo como o nome *FavoritesAnimes.json*, com uma lista de objetos contendo nome e URL da capa
  - `4 - Lista com nome e path da thumb(download da thunb)(json)`: Gera um arquivo como o nome *FavoritesAnimes.json* e também uma pasta *thunbs*, na pasta esta todas as capas dos animes favoritados, no .json está uma lista de objetos contendo nome e o path para capa na pasta thunbs
 
 ## Respondendo algumas duvidas
 <details>
-  <summary><strong>O programa funciona apenas no Better Anime?</strong></summary>
-  Sim. Seu devolvimento foi feito baseado-se na árvore DOM do Better Anime. Não sendo testando com nenhum outro site.
+  <summary><strong>Em quais sites é possível usado o programa?</strong></summary>
+  A nova versão(V2.0), da suporte ao <a href="https://betteranime.net/">Better Anime</a> e ao <a href="https://anihub.tv/login?redirect=%2F">Anihub</a>
 </details>
 <details>
   <summary><strong>Por que programa não faz a raspagem direto na web?</strong></summary>
@@ -51,5 +52,5 @@ Todo o projeto foi desenvolvido em **Python**, para garantir um ambiente isolado
 </details>
 <details>
   <summary><strong>É possível utilizar o programa também no Linux?</strong></summary>
-  Sim. Por enquanto um modo simples de usar se limita ao Windows, para usar o programa no Linux, é necessário usá-lo a partir do código-fonte diretamente. Pretendo adiciona este modo de uso futuramente.
+  Sim. Por enquanto um modo simples de usar se limita ao Windows, para usar o programa no Linux, é necessário usá-lo a partir do código-fonte diretamente.
 </details>
