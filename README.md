@@ -12,7 +12,7 @@ Favorite Anime Scraping, surgiu de um desejo meu de recuperar minha lista de ani
 Todo o projeto foi desenvolvido em **Python**, para garantir um ambiente isolado para o desenvolvimento e reduzir complexidade na conversão para .exe, utilizar o **venv**. O processo de raspagem foi feito com o **Beautiful Soup**, mapeado e filtrando os dos do html. Quanto a download de imagens foi usado o **Requests**. A conversão do código-fonte para executável foi feita através do **Pyinstaller**.
 
 ## Utilização
-1. Baixe o executável do arquivo executável ([Download](https://github.com/JeffersonSimplicio/scraping-favorite-anime/raw/main/animeScraping.exe))
+1. Baixe o executável do arquivo executável ([Download](https://github.com/JeffersonSimplicio/scraping-favorite-anime/raw/main/anime_scrapingV2.0.exe))
 
 2. Faça login do Better Anime e navegue até a [página de perfil](https://betteranime.net/minha-conta)
 
