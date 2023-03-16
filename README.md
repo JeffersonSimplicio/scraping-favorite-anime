@@ -12,28 +12,86 @@ Favorite Anime Scraping, surgiu de um desejo meu de recuperar minha lista de ani
 Todo o projeto foi desenvolvido em **Python**, para garantir um ambiente isolado para o desenvolvimento e reduzir complexidade na conversão para .exe, utilizar o **venv**. O processo de raspagem foi feito com o **Beautiful Soup**, mapeado e filtrando os dos do html. Quanto a download de imagens foi usado o **Requests**. A conversão do código-fonte para executável foi feita através do **Pyinstaller**.
 
 ## Utilização
-1. Baixe o executável do arquivo executável ([Download](https://github.com/JeffersonSimplicio/scraping-favorite-anime/raw/main/anime_scrapingV2.0.exe))
+<details>
+  <summary><strong>Executável(.exe)(Recomendado)</strong></summary>
+
+  1. Baixe o executável do arquivo executável ([Download](https://github.com/JeffersonSimplicio/scraping-favorite-anime/raw/main/anime_scrapingV2.0.exe))
   <!-- - ⚠️: O Windows pode identificar o arquivo como virus, não se preocupe, o executavel foi gerando com Pyinstaller a partir do código-fonte. Caso não se sinta confortale, é possivel usar diretamente no código-fonte.  -->
 
-2. Faça login do Better Anime e navegue até a [página de perfil](https://betteranime.net/minha-conta)
+  2. Faça login no site(Better Anime ou Anihub), e navegue ate a pagina de favoritos
 
-3. Clique com o botão direito o mouse e depois em Inspecionar ou pressione F12 em seu teclado
+  3. Clique com o botão direito o mouse e depois em Inspecionar ou pressione F12 em seu teclado
 
-4. Uma tecla semelhante a esta surgira, clique em body e nos 3(três) pontos que surgirão a esquerda, conforme a imagem a baixo
-![image](./images_docs/image1.png)
+  4. Uma tecla semelhante a esta surgira, clique em body e nos 3(três) pontos que surgirão a esquerda, conforme a imagem a baixo
+  ![image](./images_docs/image1.png)
 
-5. Clique em `Cópia` e em seguida `Copiar elemento`
-![image](./images_docs/image2.png)
+  5. Clique em `Cópia` e em seguida `Copiar elemento`
+  ![image](./images_docs/image2.png)
 
-6. Abra o editor de texto que sua preferência, cole o código e salve o arquivo com a extensão `.html`
-- ✨ **Dica:** Recomendo que o executável e o HTML figuem na mesma pasta, esse é o local padrão onde um programa buscara o arquivo do site
-- ✨ **Dica:** O arquivo pode ser salvo com qualquer nome, mas recomendo que salve como `favorites-list-page.html`, esse é o nome padrão que o programa usa
+  6. Abra o editor de texto que sua preferência, cole o código e salve o arquivo com a extensão `.html`
+  - ✨ **Dica:** Recomendo que o executável e o HTML figuem na mesma pasta, esse é o local padrão onde um programa buscara o arquivo do site
+  - ✨ **Dica:** O arquivo pode ser salvo com qualquer nome, mas recomendo que salve como `favorites-list-page.html`, esse é o nome padrão que o programa utiliza
 
-7. Abra o programa
+  7. Abra o programa
 
-8. Caso tenha seguido as dicas dadas anteriormente, basta clicar Enter; do contrário sera necessário informar a rota até o html
+  8. Caso tenha seguido as dicas dadas anteriormente, basta clicar Enter; do contrário sera necessário informar a rota até o html
 
-9.  O programa lhe dará 4(quatro) opções, escolha uma delas, digite o número e pressione Enter. Você pode usar o programa quantas vezes quiser e testar cada opção
+  9. O programa lhe dará 4(quatro) opções, escolha uma delas, digite o número e pressione Enter. Você pode usar o programa quantas vezes quiser e testar cada opção
+</details>
+
+<details>
+  <summary><strong>Via código-fonte</strong></summary>
+  Esta método é uma alternativa para usuários de Linux ou Mac<br>
+  Este procedimento <strong>não é recomendado</strong><br>
+  Para usar esse método é preciso possuir o **python** instalado e recomendado o uso do venv
+
+  1. Clone o repositório
+  ```
+  git clone git@github.com:JeffersonSimplicio/scraping-favorite-anime.git
+
+  ```
+
+  2. Entre no diretório gerado
+  ```
+  cd scraping-favorite-anime
+
+  ``` 
+
+  3. Inicialize o ambiente virtual de desenvolvimento(Este passo não é obrigatório, mas é recomendado)
+  ```
+  python3 -m venv .venv && source .venv/bin/activate
+
+  ```
+
+  4. Instale as dependências
+  ```
+  pip install -r requirements.txt  
+
+  ```
+
+  5. Faça login no site(Better Anime ou Anihub), e navegue ate a pagina de favoritos
+
+  6. Clique com o botão direito o mouse e depois em Inspecionar ou pressione F12 em seu teclado
+
+  7. Uma tecla semelhante a esta surgira, clique em body e nos 3(três) pontos que surgirão a esquerda, conforme a imagem a baixo
+  ![image](./images_docs/image1.png)
+
+  8. Clique em `Cópia` e em seguida `Copiar elemento`
+  ![image](./images_docs/image2.png)
+
+  9. Abra o editor de texto que sua preferência, cole o código e salve o arquivo com a extensão `.html`
+  - ✨ **Dica:** Recomendo que o executável e o HTML figuem na mesma pasta, esse é o local padrão onde um programa buscara o arquivo do site
+  - ✨ **Dica:** O arquivo pode ser salvo com qualquer nome, mas recomendo que salve como `favorites-list-page.html`, esse é o nome padrão que o programa utiliza
+
+  10. Inicie o programa
+  ```
+  python3 src/main.py  
+  ```
+
+  11. Caso tenha seguido as dicas dadas anteriormente, basta clicar Enter; do contrário sera necessário informar a rota até o html
+   
+  12. O programa lhe dará 4(quatro) opções, escolha uma delas, digite o número e pressione Enter. Você pode usar o programa quantas vezes quiser e testar cada opção
+</details>
 
 ## O que cada opção faz
   - `1 - Lista de nomes(txt)`: Gera um arquivo como o nome *FavoritesAnimes.txt*, com o nome de todos os animes favoritados no site
