@@ -1,20 +1,14 @@
 from bs4 import BeautifulSoup
 from strategy.main import FavoritesAnimes
-from interface.interface_controls import (
-    select_file,
-    select_filter,
-    select_option,
-    operation,
-    control_empty_file
-
-)
+from interface.selectors import Selectors
+from interface.controls import Controls
 
 
 def interface():
-    code = select_file()
+    code = Selectors.file()
     soup = BeautifulSoup(code, "html.parser")
 
-    filter = select_filter(soup)
+    filter = Selectors.filter(soup)
     filterAnime = FavoritesAnimes(filter, soup)
 
     total_favorites = filterAnime.len_favorites()
@@ -26,9 +20,9 @@ def interface():
     else:
         print(f'Você possui {filterAnime.len_favorites()} animes favoritos')
 
-    selected = select_option()
+    selected = Selectors.options()
 
-    response = control_empty_file(total_favorites)
+    response = Controls.empty_file(total_favorites)
 
     if response:
-        operation(filterAnime, selected)
+        Controls.operation(filterAnime, selected)
