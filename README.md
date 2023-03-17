@@ -15,7 +15,7 @@ Todo o projeto foi desenvolvido em **Python**, para garantir um ambiente isolado
 <details>
   <summary><strong>Executável(.exe)(Recomendado)</strong></summary>
 
-  1. Baixe o executável do arquivo executável ([Download](https://github.com/JeffersonSimplicio/scraping-favorite-anime/raw/main/anime_scrapingV2.0.exe))
+  1. Baixe o executável do arquivo executável ([Download](https://github.com/JeffersonSimplicio/scraping-favorite-anime/raw/main/anime_scrapingV2.5.2.exe))
   <!-- - ⚠️: O Windows pode identificar o arquivo como virus, não se preocupe, o executavel foi gerando com Pyinstaller a partir do código-fonte. Caso não se sinta confortale, é possivel usar diretamente no código-fonte.  -->
 
   2. Faça login no site(Better Anime ou Anihub), e navegue ate a pagina de favoritos
