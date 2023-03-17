@@ -4,8 +4,9 @@ from strategy.anime_strategy import AnimeStrategy
 
 class AnihubStrategy(AnimeStrategy):
     # Default name files
-    DEFAULT_NAME_JSON = 'anihub-favorites.json'
-    DEFAULT_NAME_TXT = 'anihub-favorites.txt'
+    TYPE_JSON = '.json'
+    TYPE_TXT = '.txt'
+    DEFAULT_NAME = 'favorites_anihub'
 
     # Filters
     @classmethod
@@ -64,28 +65,28 @@ class AnihubStrategy(AnimeStrategy):
     def create_txt_list_favorites(cls, code: BeautifulSoup) -> None:
         super().create_txt_list_favorites(
             cls.list_favorites_name(code),
-            cls.DEFAULT_NAME_TXT
+            f'name_{cls.DEFAULT_NAME}{cls.TYPE_TXT}'
         )
 
     @classmethod
     def create_txt_list_favorites_url(cls, code: BeautifulSoup) -> None:
         return super().create_txt_list_favorites_url(
             cls.list_name_thunb(code),
-            cls.DEFAULT_NAME_TXT
+            f'name_url_{cls.DEFAULT_NAME}{cls.TYPE_TXT}'
         )
 
     @classmethod
     def create_json_list_favorites_url(cls, code: BeautifulSoup) -> None:
         return super().create_json_list_favorites_url(
             cls.list_name_thunb(code),
-            cls.DEFAULT_NAME_JSON
+            f'name_url_{cls.DEFAULT_NAME}{cls.TYPE_JSON}'
         )
 
     @classmethod
     def create_json_list_favorites_local(cls, code: BeautifulSoup) -> None:
         return super().create_json_list_favorites_local(
             cls.list_name_thunb_local(code),
-            cls.DEFAULT_NAME_JSON
+            f'name_local_{cls.DEFAULT_NAME}{cls.TYPE_JSON}'
         )
 
     @staticmethod
