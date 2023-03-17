@@ -1,7 +1,7 @@
 <h1 align="center">Favorite Anime Scraping(V2.5.2)</h1>
 
 ## O que há de novo?
-* Suporte aao BetterAnime e Anihub
+* Suporte ao BetterAnime e Anihub
 * Corrigida falha de download das thunbs
 * Gera arquivos vazios agora exigem confirmação do usuário
 * CLI mais limpa
