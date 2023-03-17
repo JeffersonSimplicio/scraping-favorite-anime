@@ -7,22 +7,27 @@ from interface.console import Console
 
 
 class Selectors():
-    @staticmethod
-    def file() -> str:
+    DELAY_TIME = 1
+
+    @classmethod
+    def file(cls) -> str:
         DEFAULT_PATH = 'favorites-list-page.html'
         text = f"Qual arquivo deseja utilizar?({DEFAULT_PATH}) "
         while True:
             try:
                 path_file = str(input(text)).strip()
                 path = DEFAULT_PATH if path_file == '' else path_file
-                Console.clear()
+                Console.self_destruct_message(
+                    'Foi selecionado o arquivo padrão',
+                    cls.DELAY_TIME
+                )
                 code = read_file(path)
                 return code
             except FileNotFoundError:
                 print('Arquivo não encontrado')
 
-    @staticmethod
-    def filter(soup: BeautifulSoup):
+    @classmethod
+    def filter(cls, soup: BeautifulSoup):
         try:
             filter = web_site_identifier(soup)
             return filter
@@ -42,7 +47,8 @@ Qual opção escolhida(Padrão - 1): '''
                     if selected in option:
                         if selected == option[0]:
                             Console.self_destruct_message(
-                                'Foi selecionada a opção padrão - opção 1', 1
+                                'Foi selecionada a opção padrão - opção 1',
+                                cls.DELAY_TIME
                             )
                             return BetterAnimeStrategy
                         elif selected == option[1]:
@@ -56,8 +62,8 @@ Qual opção escolhida(Padrão - 1): '''
                 except ValueError:
                     print("Selecione uma opção valida!")
 
-    @staticmethod
-    def options() -> None:
+    @classmethod
+    def options(cls) -> None:
         option = ['', '1', '2', '3', '4']
         text = """Opções disponíveis:
 1 - Lista de nomes(txt)
@@ -73,7 +79,8 @@ Qual opção escolhida?(Padrão - 2) """
                 if selected in option:
                     if selected == option[0]:
                         Console.self_destruct_message(
-                                'Foi selecionada a opção padrão - opção 2', 1
+                                'Foi selecionada a opção padrão - opção 2',
+                                cls.DELAY_TIME
                             )
                         return 2
                     Console.clear()

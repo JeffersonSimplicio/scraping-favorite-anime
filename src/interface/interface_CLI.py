@@ -23,3 +23,4 @@ def interface():
 
     if response:
         Controls.operation(filterAnime, selected)
+    Console.clear(1)
