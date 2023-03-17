@@ -29,7 +29,6 @@ def write_img(image_url: str, name: str) -> None:
     with open(
         f'thunbs/{path}.jpg',
         'wb',
-        encoding="utf8"
     ) as handler:
         handler.write(img_data)
 
