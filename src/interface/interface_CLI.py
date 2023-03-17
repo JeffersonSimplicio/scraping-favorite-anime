@@ -2,6 +2,7 @@ from bs4 import BeautifulSoup
 from strategy.main import FavoritesAnimes
 from interface.selectors import Selectors
 from interface.controls import Controls
+from interface.console import Console
 
 
 def interface():
@@ -13,12 +14,7 @@ def interface():
 
     total_favorites = filterAnime.len_favorites()
 
-    if (total_favorites == 0):
-        print('Você não possui nenhum anime na lista de favoritos')
-    elif (total_favorites == 1):
-        print('Você possui 1 anime na lista de favoritos')
-    else:
-        print(f'Você possui {filterAnime.len_favorites()} animes favoritos')
+    Console.total_favorites(total_favorites)
 
     selected = Selectors.options()
 
