@@ -4,7 +4,9 @@ from interface.interface_controls import (
     select_file,
     select_filter,
     select_option,
-    operation
+    operation,
+    control_empty_file
+
 )
 
 
@@ -25,4 +27,8 @@ def interface():
         print(f'Você possui {filterAnime.len_favorites()} animes favoritos')
 
     selected = select_option()
-    operation(filterAnime, selected)
+
+    response = control_empty_file(total_favorites)
+
+    if response:
+        operation(filterAnime, selected)
