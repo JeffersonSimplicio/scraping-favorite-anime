@@ -2,7 +2,7 @@ from bs4 import BeautifulSoup
 from strategy.list_stratege import Strategys
 
 
-def web_site_identifier(soup: BeautifulSoup):
+def web_site_identifier(soup: BeautifulSoup) -> bool:
     for stratege in Strategys:
         if (stratege.value.identifier(soup)):
             return stratege.value

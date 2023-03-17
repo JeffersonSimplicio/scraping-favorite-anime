@@ -6,6 +6,7 @@ from interface.console import Console
 
 
 def interface():
+    Console.clear()
     code = Selectors.file()
     soup = BeautifulSoup(code, "html.parser")
 
