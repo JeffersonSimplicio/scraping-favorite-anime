@@ -1,4 +1,13 @@
-<h1 align="center">Favorite Anime Scraping</h1>
+<h1 align="center">Favorite Anime Scraping(V2.5.2)</h1>
+
+## O que há de novo?
+* Suporte aao BetterAnime e Anihub
+* Corrigida falha de download das thunbs
+* Gera arquivos vazios agora exigem confirmação do usuário
+* CLI mais limpa
+* Agora cada arquivo gerado possui um nome exclusivo
+* Confirmação de resposta padrão
+* O texto da quantidade de favoritos se ajusta a quantidade de animes
 
 ## Descrição
 Favorite Anime Scraping, surgiu de um desejo meu de recuperar minha lista de animes, que está em um site onde costumava assisti-los. Por acreditar que outras pessoas poderiam ter o mesmo desejo, decidi compartilhar, criando um arquivo executável(.exe) para facilitar seu uso. O programa consegue obter o nome do anime, a URL de sua capa e até mesmo baixar a capa caso o usuário deseje.
@@ -104,7 +113,7 @@ Todo o projeto foi desenvolvido em **Python**, para garantir um ambiente isolado
 ## Respondendo algumas duvidas
 <details>
   <summary><strong>Em quais sites é possível usado o programa?</strong></summary>
-  A nova versão(V2.0), da suporte ao <a href="https://betteranime.net/">Better Anime</a> e ao <a href="https://anihub.tv/login?redirect=%2F">Anihub</a>
+  A partir da versão 2.0, da suporte ao <a href="https://betteranime.net/">Better Anime</a> e ao <a href="https://anihub.tv/login?redirect=%2F">Anihub</a>
 </details>
 <details>
   <summary><strong>Por que programa não faz a raspagem direto na web?</strong></summary>
