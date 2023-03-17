@@ -40,7 +40,9 @@ Todo o projeto foi desenvolvido em **Python**, para garantir um ambiente isolado
 </details>
 
 <details>
-  <summary><strong>Via código-fonte</strong></summary>
+  <summary id="source-code">
+    <strong>Via código-fonte</strong>
+  </summary>
   Esta método é uma alternativa para usuários de Linux ou Mac<br>
   Este procedimento <strong>não é recomendado</strong><br>
   Para usar esse método é preciso possuir o **python** instalado e recomendado o uso do venv
@@ -110,5 +112,5 @@ Todo o projeto foi desenvolvido em **Python**, para garantir um ambiente isolado
 </details>
 <details>
   <summary><strong>É possível utilizar o programa também no Linux?</strong></summary>
-  Sim. Por enquanto um modo simples de usar se limita ao Windows, para usar o programa no Linux, é necessário usá-lo a partir do código-fonte diretamente.
+  Sim. Por enquanto um modo simples de usar se limita ao Windows, para usar o programa no Linux, é necessário usá-lo a partir do código-fonte diretamente. <a href="#source-code">Tutorial para Linux</a>
 </details>
