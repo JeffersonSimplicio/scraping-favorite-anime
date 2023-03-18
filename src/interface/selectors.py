@@ -3,6 +3,7 @@ from utils.readers import read_file
 from utils.web_site_identifier import web_site_identifier
 from strategy.ba_strategy import BetterAnimeStrategy
 from strategy.anihub_strategy import AnihubStrategy
+from strategy.af_strategy import AnimeFireStrategy
 from interface.console import Console
 
 
@@ -17,10 +18,11 @@ class Selectors():
             try:
                 path_file = str(input(text)).strip()
                 path = DEFAULT_PATH if path_file == '' else path_file
-                Console.self_destruct_message(
-                    'Foi selecionado o arquivo padrão',
-                    cls.DELAY_TIME
-                )
+                if path_file == DEFAULT_PATH:
+                    Console.self_destruct_message(
+                        'Foi selecionado o arquivo padrão',
+                        cls.DELAY_TIME
+                    )
                 code = read_file(path)
                 return code
             except FileNotFoundError:
@@ -32,10 +34,11 @@ class Selectors():
             filter = web_site_identifier(soup)
             return filter
         except ValueError:
-            option = ['', '1', '2']
+            option = ['', '1', '2', '3']
             text = '''Filtros disponíveis:
 1 - BetterAnime
 2 - Anihub
+3 - AnimeFire
 
 Qual opção escolhida(Padrão - 1): '''
 
@@ -57,6 +60,9 @@ Qual opção escolhida(Padrão - 1): '''
                         elif selected == option[2]:
                             Console.clear()
                             return AnihubStrategy
+                        elif selected == option[3]:
+                            Console.clear()
+                            return AnimeFireStrategy
                     Console.clear()
                     raise ValueError
                 except ValueError:
