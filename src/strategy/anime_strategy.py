@@ -2,7 +2,8 @@ from os import mkdir
 from shutil import rmtree
 from abc import ABC, abstractmethod
 from bs4 import BeautifulSoup
-from utils.writers import write_txt, write_json, write_img
+from utils.writers import Write
+from utils.image_name_generator import image_name_generator
 
 
 class AnimeStrategy(ABC):  # Interface
@@ -61,39 +62,33 @@ class AnimeStrategy(ABC):  # Interface
             )
         return name_thunb
 
-    @classmethod
-    def list_name_thunb_local(
-        cls,
-        get_cards,
-        get_name,
-        get_thunb,
-        extension: str = 'jpg'
-    ) -> list:
-        print('Por favor, aguarde! Isso pode demorar um pouco...')
-        favorites_list = get_cards
-        name_thunb = []
+    # @classmethod
+    # def list_name_thunb_local(
+    #     cls,
+    #     get_cards,
+    #     get_name,
+    #     get_thunb,
+    #     extension: str = 'jpg'
+    # ) -> list:
+    #     print('Por favor, aguarde! Isso pode demorar um pouco...')
+    #     favorites_list = get_cards
+    #     name_thunb = []
 
-        try:
-            mkdir('./thunbs')
-        except FileExistsError:
-            rmtree('./thunbs')
-            mkdir('./thunbs')
+    #     for anime in favorites_list:
+    #         name = get_name(anime)
+    #         thunb_url = get_thunb(anime)
 
-        for anime in favorites_list:
+    #         path = write_img(thunb_url, name, extension)
+    #         image_name = image_name_generator(name)
 
-            name = get_name(anime)
-            thunb_url = get_thunb(anime)
+    #         name_thunb.append(
+    #             {
+    #                 'name': name,
+    #                 'thunb_url': f'{image_name}.{extension}'
+    #             }
+    #         )
 
-            path = write_img(thunb_url, name, extension)
-
-            name_thunb.append(
-                {
-                    'name': name,
-                    'thunb_url': path
-                }
-            )
-
-        return name_thunb
+    #     return name_thunb
 
     # Create file
     @classmethod
@@ -103,8 +98,8 @@ class AnimeStrategy(ABC):  # Interface
         name_file: str = ''
     ) -> None:
         if (name_file != ''):
-            return write_txt(list_favorites_name, name_file)
-        write_txt(list_favorites_name)
+            return Write.txt(list_favorites_name, name_file)
+        Write.txt(list_favorites_name)
 
     @classmethod
     def create_txt_list_favorites_url(
@@ -118,8 +113,8 @@ class AnimeStrategy(ABC):  # Interface
             for anime in list_animes
         ]
         if (name_file != ''):
-            return write_txt(format_list, name_file)
-        write_txt(format_list)
+            return Write.txt(format_list, name_file)
+        Write.txt(format_list)
 
     @classmethod
     def create_json_list_favorites_url(
@@ -128,18 +123,37 @@ class AnimeStrategy(ABC):  # Interface
         name_file: str = ''
     ) -> None:
         if (name_file != ''):
-            return write_json(list_name_thunb, name_file)
-        write_json(list_name_thunb)
+            return Write.json(list_name_thunb, name_file)
+        Write.json(list_name_thunb)
 
     @classmethod
     def create_json_list_favorites_local(
         cls,
-        list_name_thunb_local,
-        name_file: str = ''
+        list_name_thunb,
+        name_file: str = '',
+        extension: str = 'jpg'
     ) -> None:
+        try:
+            mkdir('./thunbs')
+        except FileExistsError:
+            rmtree('./thunbs')
+            mkdir('./thunbs')
+
+        name_thunb = []
+
+        for anime in list_name_thunb:
+            image_name = image_name_generator(anime['name'])
+            Write.img(anime['thunb_url'], image_name, extension)
+            name_thunb.append(
+                {
+                    'name': anime['name'],
+                    'thunb_url': f'/thunbs/{image_name}.{extension}'
+                }
+            )
+
         if (name_file != ''):
-            return write_json(list_name_thunb_local, name_file)
-        write_json(list_name_thunb_local)
+            return Write.json(name_thunb, name_file)
+        Write.json(name_thunb)
 
     @staticmethod
     def identifier(code: BeautifulSoup) -> bool:
