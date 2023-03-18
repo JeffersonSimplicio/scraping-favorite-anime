@@ -36,7 +36,7 @@ class BetterAnimeStrategy(AnimeStrategy):
 
     @classmethod
     def len_favorites(cls, code: BeautifulSoup) -> int:
-        return len(code.find_all('article'))
+        return super().len_favorites(cls.__get_cards(code))
 
     @classmethod
     def list_favorites_name(cls, code: BeautifulSoup) -> list:
@@ -45,14 +45,6 @@ class BetterAnimeStrategy(AnimeStrategy):
     @classmethod
     def list_name_thunb(cls, code: BeautifulSoup) -> list:
         return super().list_name_thunb(
-            cls.__get_cards(code),
-            cls.__get_name,
-            cls.__get_thunb
-        )
-
-    @classmethod
-    def list_name_thunb_local(cls, code: BeautifulSoup) -> list:
-        return super().list_name_thunb_local(
             cls.__get_cards(code),
             cls.__get_name,
             cls.__get_thunb
@@ -83,7 +75,7 @@ class BetterAnimeStrategy(AnimeStrategy):
     @classmethod
     def create_json_list_favorites_local(cls, code: BeautifulSoup) -> None:
         return super().create_json_list_favorites_local(
-            cls.list_name_thunb_local(code),
+            cls.list_name_thunb(code),
             f'name_local_{cls.DEFAULT_NAME}{cls.TYPE_JSON}'
         )
 

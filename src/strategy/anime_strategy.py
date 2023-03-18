@@ -30,8 +30,8 @@ class AnimeStrategy(ABC):  # Interface
         return code.prettify()
 
     @abstractmethod
-    def len_favorites(cls, code: BeautifulSoup) -> int:
-        raise NotImplementedError
+    def len_favorites(cls, cards) -> int:
+        return len(cards)
 
     @classmethod
     def list_favorites_name(
@@ -61,34 +61,6 @@ class AnimeStrategy(ABC):  # Interface
                 }
             )
         return name_thunb
-
-    # @classmethod
-    # def list_name_thunb_local(
-    #     cls,
-    #     get_cards,
-    #     get_name,
-    #     get_thunb,
-    #     extension: str = 'jpg'
-    # ) -> list:
-    #     print('Por favor, aguarde! Isso pode demorar um pouco...')
-    #     favorites_list = get_cards
-    #     name_thunb = []
-
-    #     for anime in favorites_list:
-    #         name = get_name(anime)
-    #         thunb_url = get_thunb(anime)
-
-    #         path = write_img(thunb_url, name, extension)
-    #         image_name = image_name_generator(name)
-
-    #         name_thunb.append(
-    #             {
-    #                 'name': name,
-    #                 'thunb_url': f'{image_name}.{extension}'
-    #             }
-    #         )
-
-    #     return name_thunb
 
     # Create file
     @classmethod
@@ -133,6 +105,8 @@ class AnimeStrategy(ABC):  # Interface
         name_file: str = '',
         extension: str = 'jpg'
     ) -> None:
+        print('Por favor, aguarde! Isso pode demorar um pouco...')
+
         try:
             mkdir('./thunbs')
         except FileExistsError:
