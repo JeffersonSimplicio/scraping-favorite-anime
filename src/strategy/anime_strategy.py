@@ -66,7 +66,8 @@ class AnimeStrategy(ABC):  # Interface
         cls,
         get_cards,
         get_name,
-        get_thunb
+        get_thunb,
+        extension: str = 'jpg'
     ) -> list:
         print('Por favor, aguarde! Isso pode demorar um pouco...')
         favorites_list = get_cards
@@ -83,7 +84,7 @@ class AnimeStrategy(ABC):  # Interface
             name = get_name(anime)
             thunb_url = get_thunb(anime)
 
-            path = write_img(thunb_url, name)
+            path = write_img(thunb_url, name, extension)
 
             name_thunb.append(
                 {
