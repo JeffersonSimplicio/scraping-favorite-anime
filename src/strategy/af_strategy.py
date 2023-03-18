@@ -11,24 +11,24 @@ class AnimeFireStrategy(AnimeStrategy):
     # Filters
     @classmethod
     def __get_cards(cls, code: BeautifulSoup):  # -> ResultSet[Tag]
-        cards_list = code.select('')
+        cards_list = code.select('article.card.cardUltimosEps')
         return cards_list
 
     @classmethod
     def __get_names(cls, code: BeautifulSoup):  # -> ResultSet[Tag]
-        favorites_list = code.select(
-            ''
-        )
+        favorites_list = code.select('h3.animeTitle')
         return favorites_list
 
     @staticmethod
     def __get_name(anime: str) -> str:
-        name = anime.select_one('').string
+        name = anime.select_one('h3.animeTitle').string
         return name
 
     @staticmethod
     def __get_thunb(anime: str) -> str:
-        thunb = anime.select_one('img')['src']
+        thunb = anime.select_one(
+            'img.card-img-top.imgAnimes.transitioning_src'
+        )['src']
         return thunb
 
     # Get data from HTML
@@ -38,7 +38,7 @@ class AnimeFireStrategy(AnimeStrategy):
 
     @classmethod
     def len_favorites(cls, code: BeautifulSoup) -> int:
-        return len(code.select(''))
+        return len(cls.__get_cards(code))
 
     @classmethod
     def list_favorites_name(cls, code: BeautifulSoup) -> list:
@@ -57,7 +57,8 @@ class AnimeFireStrategy(AnimeStrategy):
         return super().list_name_thunb_local(
             cls.__get_cards(code),
             cls.__get_name,
-            cls.__get_thunb
+            cls.__get_thunb,
+            'webp'
         )
 
     # Create file
@@ -91,10 +92,10 @@ class AnimeFireStrategy(AnimeStrategy):
 
     @staticmethod
     def identifier(code: BeautifulSoup) -> bool:
-        if (code.select_one('')):
+        if (code.select_one('div.row.ml-1.mr-1')):
             return True
-        elif (code.select_one('')):
+        elif (code.select_one('div#body-content')):
             return True
-        elif (code.select_one('')):
+        elif (code.select_one('div.container.mt-5')):
             return True
         return False
