@@ -91,7 +91,7 @@ class BetterAnimeStrategy(AnimeStrategy):
     def identifier(code: BeautifulSoup) -> bool:
         if (code.select_one('h1.font-zero')):
             return True
-        elif (code.select_one('li.nav-item')):
+        elif (code.select_one('div#listaFavoritos')):
             return True
         elif (code.select_one('div.tab-pane')):
             return True
