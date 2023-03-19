@@ -23,30 +23,30 @@ def test_name_all_unreturned_animes():
     assert list == expectation
 
 
-# def test_returns_list_name_url():
-#     expectation = [
-#         {
-#             "name": "Anime1",
-#             "thunb_url": "https://betteranime.com/anime1-img.jpg",
-#         },
-#         {
-#             "name": "Anime2",
-#             "thunb_url": "https://betteranime.com/anime2-img.jpg",
-#         },
-#         {
-#             "name": "Anime3",
-#             "thunb_url": "https://betteranime.com/anime3-img.jpg",
-#         },
-#         {
-#             "name": "Anime4",
-#             "thunb_url": "https://betteranime.com/anime4-img.jpg",
-#         },
-#         {
-#             "name": "Anime5",
-#             "thunb_url": "https://betteranime.com/anime5-img.jpg",
-#         },
-#     ]
+def test_returns_list_name_url():
+    expectation = [
+        {
+            "name": "Anime1",
+            "thunb_url": "https://betteranime.com/anime1-img.jpg",
+        },
+        {
+            "name": "Anime2",
+            "thunb_url": "https://betteranime.com/anime2-img.jpg",
+        },
+        {
+            "name": "Anime3",
+            "thunb_url": "https://betteranime.com/anime3-img.jpg",
+        },
+        {
+            "name": "Anime4",
+            "thunb_url": "https://betteranime.com/anime4-img.jpg",
+        },
+        {
+            "name": "Anime5",
+            "thunb_url": "https://betteranime.com/anime5-img.jpg",
+        },
+    ]
 
-#     list = better_anime.list_name_thunb()
+    list = better_anime.list_name_thunb()
 
-#     assert list == expectation
+    assert list == expectation
