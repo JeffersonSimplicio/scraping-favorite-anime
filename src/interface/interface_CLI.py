@@ -1,8 +1,8 @@
 from bs4 import BeautifulSoup
-from strategy.main import FavoritesAnimes
-from interface.selectors import Selectors
-from interface.controls import Controls
-from interface.console import Console
+from src.strategy.main import FavoritesAnimes
+from src.interface.selectors import Selectors
+from src.interface.controls import Controls
+from src.interface.console import Console
 
 
 def interface():

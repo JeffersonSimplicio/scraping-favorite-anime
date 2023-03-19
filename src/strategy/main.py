@@ -1,5 +1,5 @@
-from strategy.anime_strategy import AnimeStrategy
 from bs4 import BeautifulSoup
+from src.strategy.anime_strategy import AnimeStrategy
 
 
 class FavoritesAnimes:

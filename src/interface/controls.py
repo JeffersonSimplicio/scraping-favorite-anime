@@ -1,4 +1,4 @@
-from strategy.main import FavoritesAnimes
+from src.strategy.main import FavoritesAnimes
 
 
 class Controls:

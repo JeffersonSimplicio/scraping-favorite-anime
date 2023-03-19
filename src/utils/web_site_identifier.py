@@ -1,5 +1,5 @@
 from bs4 import BeautifulSoup
-from strategy.list_stratege import Strategys
+from src.strategy.list_stratege import Strategys
 
 
 def web_site_identifier(soup: BeautifulSoup) -> bool:

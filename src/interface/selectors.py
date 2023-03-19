@@ -1,8 +1,8 @@
 from bs4 import BeautifulSoup
-from utils.readers import Read
-from utils.web_site_identifier import web_site_identifier
-from strategy.list_stratege import Strategys
-from interface.console import Console
+from src.utils.readers import Read
+from src.utils.web_site_identifier import web_site_identifier
+from src.strategy.list_stratege import Strategys
+from src.interface.console import Console
 
 
 class Selectors:

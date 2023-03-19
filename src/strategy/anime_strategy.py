@@ -2,8 +2,8 @@ from os import mkdir
 from shutil import rmtree
 from abc import ABC, abstractmethod
 from bs4 import BeautifulSoup
-from utils.writers import Write
-from utils.image_name_generator import image_name_generator
+from src.utils.writers import Write
+from src.utils.image_name_generator import image_name_generator
 
 
 class AnimeStrategy(ABC):  # Interface
@@ -25,22 +25,22 @@ class AnimeStrategy(ABC):  # Interface
         raise NotImplementedError
 
     # Get data from HTML
-    @classmethod
-    def code(cls, code: BeautifulSoup) -> str:
+    @staticmethod
+    def code(code: BeautifulSoup) -> str:
         return code.prettify()
 
-    @abstractmethod
-    def len_favorites(cls, cards) -> int:
+    @staticmethod
+    def len_favorites(cards) -> int:
         return len(cards)
 
-    @classmethod
-    def list_favorites_name(cls, get_names) -> list:
+    @staticmethod
+    def list_favorites_name(get_names) -> list:
         favorites_list = get_names
         names_list = [divName.string for divName in favorites_list]
         return names_list
 
-    @classmethod
-    def list_name_thunb(cls, get_cards, get_name, get_thunb) -> list:
+    @staticmethod
+    def list_name_thunb(get_cards, get_name, get_thunb) -> list:
         favorites_list = get_cards
         name_thunb = []
         for anime in favorites_list:
@@ -50,17 +50,17 @@ class AnimeStrategy(ABC):  # Interface
         return name_thunb
 
     # Create file
-    @classmethod
+    @staticmethod
     def create_txt_list_favorites(
-        cls, list_favorites_name, name_file: str = ""
+        list_favorites_name, name_file: str = ""
     ) -> None:
         if name_file != "":
             return Write.txt(list_favorites_name, name_file)
         Write.txt(list_favorites_name)
 
-    @classmethod
+    @staticmethod
     def create_txt_list_favorites_url(
-        cls, list_name_thunb, name_file: str = ""
+        list_name_thunb, name_file: str = ""
     ) -> None:
         list_animes = list_name_thunb
         format_list = [
@@ -71,17 +71,17 @@ class AnimeStrategy(ABC):  # Interface
             return Write.txt(format_list, name_file)
         Write.txt(format_list)
 
-    @classmethod
+    @staticmethod
     def create_json_list_favorites_url(
-        cls, list_name_thunb, name_file: str = ""
+        list_name_thunb, name_file: str = ""
     ) -> None:
         if name_file != "":
             return Write.json(list_name_thunb, name_file)
         Write.json(list_name_thunb)
 
-    @classmethod
+    @staticmethod
     def create_json_list_favorites_local(
-        cls, list_name_thunb, name_file: str = "", extension: str = "jpg"
+        list_name_thunb, name_file: str = "", extension: str = "jpg"
     ) -> None:
         print("Por favor, aguarde! Isso pode demorar um pouco...")
 
@@ -107,6 +107,6 @@ class AnimeStrategy(ABC):  # Interface
             return Write.json(name_thunb, name_file)
         Write.json(name_thunb)
 
-    @staticmethod
+    @abstractmethod
     def identifier(code: BeautifulSoup) -> bool:
         raise NotImplementedError
