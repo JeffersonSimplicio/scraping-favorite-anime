@@ -59,25 +59,21 @@ Todo o projeto foi desenvolvido em **[Python](https://www.python.org/)**, o **[V
   1. Clone o repositório
   ```
   git clone git@github.com:JeffersonSimplicio/scraping-favorite-anime.git
-
   ```
 
   2. Entre no diretório gerado
   ```
   cd scraping-favorite-anime
-
   ``` 
 
   3. Inicialize o ambiente virtual de desenvolvimento(Este passo não é obrigatório, mas é recomendado)
   ```
   python3 -m venv .venv && source .venv/bin/activate
-
   ```
 
   4. Instale as dependências
   ```
   pip install -r requirements.txt  
-
   ```
 
   5. Faça login no site(Better Anime ou Anihub), e navegue ate a pagina de favoritos
@@ -96,7 +92,7 @@ Todo o projeto foi desenvolvido em **[Python](https://www.python.org/)**, o **[V
 
   10. Inicie o programa
   ```
-  python3 src/main.py  
+  python3 src/main.py
   ```
 
   11. Caso tenha seguido as dicas dadas anteriormente, basta clicar Enter; do contrário sera necessário informar a rota até o html
@@ -105,7 +101,7 @@ Todo o projeto foi desenvolvido em **[Python](https://www.python.org/)**, o **[V
 </details>
 
 ## O que cada opção faz
-  - `1 - Lista de nomes(txt)`: Gera um arquivo txt, com o nome de todos os animes favoritados no site
+ - `1 - Lista de nomes(txt)`: Gera um arquivo txt, com o nome de todos os animes favoritados no site
  - `2 - Lista com nome e URL da thunb(txt)`: Gera um arquivo txt, com o nome de todos os animes favoritados no site e ao lado a URL para sua capa
  - `3 - Lista com nome e URL da thunb(json)`: Gera um arquivo json, com uma lista de objetos contendo nome e URL da capa
  - `4 - Lista com nome e path da thumb(download da thunb)(json)`: Gera um arquivo json e também uma pasta *thunbs*, na pasta esta todas as capas dos animes favoritados, no json está uma lista de objetos contendo nome e o path para capa na pasta thunbs
