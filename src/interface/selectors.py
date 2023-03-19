@@ -1,5 +1,5 @@
 from bs4 import BeautifulSoup
-from utils.readers import read_file
+from utils.readers import Read
 from utils.web_site_identifier import web_site_identifier
 from strategy.list_stratege import Strategys
 from interface.console import Console
@@ -20,7 +20,7 @@ class Selectors:
                     Console.self_destruct_message(
                         "Foi selecionado o arquivo padrão", cls.DELAY_TIME
                     )
-                code = read_file(path)
+                code = Read.file(path)
                 return code
             except FileNotFoundError:
                 print("Arquivo não encontrado")
