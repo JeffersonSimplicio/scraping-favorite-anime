@@ -10,7 +10,7 @@
 * O texto da quantidade de favoritos se ajusta a quantidade de animes
 
 ## Descrição
-Favorite Anime Scraping, surgiu de um desejo meu de recuperar minha lista de animes, que está em um site onde costumava assisti-los. Por acreditar que outras pessoas poderiam ter o mesmo desejo, decidi compartilhar, criando um arquivo executável(.exe) para facilitar seu uso. O programa consegue obter o nome do anime, a URL de sua capa e até mesmo baixar a capa caso o usuário deseje.
+Favorite Anime Scraping, surgiu de um desejo meu de recuperar minha lista de animes, que está em um site onde costumava assisti-los. Por acreditar que outras pessoas poderiam ter o mesmo desejo, decidi compartilhar, criando um arquivo executável(.exe) para facilitar seu uso. O programa consegue obter o nome do anime, a URL de sua capa e até mesmo baixar a capa caso o usuário deseje. Com o tempo fui adicionando funcionalidades, corrigindo bugs, acrescentando novos sites suportados.
 
 ## Tecnologias
 * [Python](https://www.python.org/)
@@ -18,7 +18,7 @@ Favorite Anime Scraping, surgiu de um desejo meu de recuperar minha lista de ani
 * [Beautiful Soup](https://www.crummy.com/software/BeautifulSoup/bs4/doc.ptbr/)
 * [Pyinstaller](https://pyinstaller.org/en/stable/)
 
-Todo o projeto foi desenvolvido em **Python**, para garantir um ambiente isolado para o desenvolvimento e reduzir complexidade na conversão para .exe, utilizar o **venv**. O processo de raspagem foi feito com o **Beautiful Soup**, mapeado e filtrando os dos do html. Quanto a download de imagens foi usado o **Requests**. A conversão do código-fonte para executável foi feita através do **Pyinstaller**.
+Todo o projeto foi desenvolvido em **[Python](https://www.python.org/)**, o **[Venv](https://docs.python.org/pt-br/3/library/venv.html)** foi usado para criar um ambiente isolado de desenvolvimento e reduzir complexidade na geração do executável. A obtenção dos dados a partir do código do html foi feita usando o **[Beautiful Soup](https://www.crummy.com/software/BeautifulSoup/bs4/doc.ptbr/)**. Uma das opções oferecidas é o download das capas dos animes, nessa tarefa é usada o **[Requests](https://requests.readthedocs.io/en/latest/#)**. O programa foi construído usando o padrão de projeto **[Strategy](https://pt.wikipedia.org/wiki/Strategy)**, para facilitar a implicação de raspagem de novos sites.
 
 ## Utilização
 <details>
