@@ -1,9 +1,7 @@
 from bs4 import BeautifulSoup
 from utils.readers import read_file
 from utils.web_site_identifier import web_site_identifier
-from strategy.ba_strategy import BetterAnimeStrategy
-from strategy.anihub_strategy import AnihubStrategy
-from strategy.af_strategy import AnimeFireStrategy
+from strategy.list_stratege import Strategys
 from interface.console import Console
 
 
@@ -33,7 +31,7 @@ class Selectors:
             filter = web_site_identifier(soup)
             return filter
         except ValueError:
-            option = ["", "1", "2", "3"]
+            option = ["", "BetterAnime", "Anihub", "AnimeFire"]
             text = """Filtros disponíveis:
 1 - BetterAnime
 2 - Anihub
@@ -52,18 +50,10 @@ Qual opção escolhida(Padrão - 1): """
                                 "Foi selecionada a opção padrão - opção 1",
                                 cls.DELAY_TIME,
                             )
-                            return BetterAnimeStrategy
-                        elif selected == option[1]:
-                            Console.clear()
-                            return BetterAnimeStrategy
-                        elif selected == option[2]:
-                            Console.clear()
-                            return AnihubStrategy
-                        elif selected == option[3]:
-                            Console.clear()
-                            return AnimeFireStrategy
-                    Console.clear()
-                    raise ValueError
+                            return Strategys.BetterAnime.value
+                        filter = Strategys[option[int(selected)]].value
+                        Console.clear()
+                        return filter
                 except ValueError:
                     print("Selecione uma opção valida!")
 
