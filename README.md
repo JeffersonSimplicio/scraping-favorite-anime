@@ -92,7 +92,7 @@ Todo o projeto foi desenvolvido em **[Python](https://www.python.org/)**, o **[V
 
   10. Inicie o programa
   ```
-  python3 src/main.py
+  python3 main.py
   ```
 
   11. Caso tenha seguido as dicas dadas anteriormente, basta clicar Enter; do contrário sera necessário informar a rota até o html
