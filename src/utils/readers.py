@@ -2,7 +2,7 @@ import requests
 
 
 def read_file(path: str) -> str:
-    with open(path, 'r', encoding="utf-8") as data:
+    with open(path, "r", encoding="utf-8") as data:
         code = data.read()
     return code
 

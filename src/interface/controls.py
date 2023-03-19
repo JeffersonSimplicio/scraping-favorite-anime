@@ -1,7 +1,7 @@
 from strategy.main import FavoritesAnimes
 
 
-class Controls():
+class Controls:
     def operation(favorite: FavoritesAnimes, selected: int) -> None:
         if selected == 1:
             favorite.create_txt_list_favorites()
@@ -12,25 +12,27 @@ class Controls():
         elif selected == 4:
             favorite.create_json_list_favorites_local()
         else:
-            print('Opção inexistente!')
+            print("Opção inexistente!")
 
     def empty_file(total: int) -> bool:
-        if (total == 0):
-            option = ['', 'S', 'N']
-            text = ('Você não possui animes favoritos, '
-                    + 'o arquivo gerado sera vazio\n'
-                    + 'Deseja gerar o arquivo mesmo assim?'
-                    + '(s/n)(Padrão - Não): ')
+        if total == 0:
+            option = ["", "S", "N"]
+            text = (
+                "Você não possui animes favoritos, "
+                + "o arquivo gerado sera vazio\n"
+                + "Deseja gerar o arquivo mesmo assim?"
+                + "(s/n)(Padrão - Não): "
+            )
 
             while True:
                 try:
                     response = str(input(text)).strip().upper()
-                    if (response == option[0]):
-                        print('Foi selecionada a opção padrão - opção N')
+                    if response == option[0]:
+                        print("Foi selecionada a opção padrão - opção N")
                         return False
-                    elif (response[0] == option[1]):
+                    elif response[0] == option[1]:
                         return True
-                    elif (response[0] == option[2]):
+                    elif response[0] == option[2]:
                         return False
                 except ValueError:
                     print("Selecione uma opção valida!")

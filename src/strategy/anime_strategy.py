@@ -34,98 +34,76 @@ class AnimeStrategy(ABC):  # Interface
         return len(cards)
 
     @classmethod
-    def list_favorites_name(
-        cls,
-        get_names
-    ) -> list:
+    def list_favorites_name(cls, get_names) -> list:
         favorites_list = get_names
         names_list = [divName.string for divName in favorites_list]
         return names_list
 
     @classmethod
-    def list_name_thunb(
-        cls,
-        get_cards,
-        get_name,
-        get_thunb
-    ) -> list:
+    def list_name_thunb(cls, get_cards, get_name, get_thunb) -> list:
         favorites_list = get_cards
         name_thunb = []
         for anime in favorites_list:
             name = get_name(anime)
             thunb_url = get_thunb(anime)
-            name_thunb.append(
-                {
-                    'name': name,
-                    'thunb_url': thunb_url
-                }
-            )
+            name_thunb.append({"name": name, "thunb_url": thunb_url})
         return name_thunb
 
     # Create file
     @classmethod
     def create_txt_list_favorites(
-        cls,
-        list_favorites_name,
-        name_file: str = ''
+        cls, list_favorites_name, name_file: str = ""
     ) -> None:
-        if (name_file != ''):
+        if name_file != "":
             return Write.txt(list_favorites_name, name_file)
         Write.txt(list_favorites_name)
 
     @classmethod
     def create_txt_list_favorites_url(
-        cls,
-        list_name_thunb,
-        name_file: str = ''
+        cls, list_name_thunb, name_file: str = ""
     ) -> None:
         list_animes = list_name_thunb
         format_list = [
             f'{anime["name"]} - {anime["thunb_url"]}\n'
             for anime in list_animes
         ]
-        if (name_file != ''):
+        if name_file != "":
             return Write.txt(format_list, name_file)
         Write.txt(format_list)
 
     @classmethod
     def create_json_list_favorites_url(
-        cls,
-        list_name_thunb,
-        name_file: str = ''
+        cls, list_name_thunb, name_file: str = ""
     ) -> None:
-        if (name_file != ''):
+        if name_file != "":
             return Write.json(list_name_thunb, name_file)
         Write.json(list_name_thunb)
 
     @classmethod
     def create_json_list_favorites_local(
-        cls,
-        list_name_thunb,
-        name_file: str = '',
-        extension: str = 'jpg'
+        cls, list_name_thunb, name_file: str = "", extension: str = "jpg"
     ) -> None:
-        print('Por favor, aguarde! Isso pode demorar um pouco...')
+        print("Por favor, aguarde! Isso pode demorar um pouco...")
 
         try:
-            mkdir('./thunbs')
+            mkdir("./thunbs")
         except FileExistsError:
-            rmtree('./thunbs')
-            mkdir('./thunbs')
+            rmtree("./thunbs")
+            mkdir("./thunbs")
 
         name_thunb = []
 
         for anime in list_name_thunb:
-            image_name = image_name_generator(anime['name'])
-            Write.img(anime['thunb_url'], image_name, extension)
+            image_name = image_name_generator(anime["name"])
+            Write.img(anime["thunb_url"], image_name, extension)
             name_thunb.append(
                 {
-                    'name': anime['name'],
-                    'thunb_url': f'/thunbs/{image_name}.{extension}'
+                    "name": anime["name"],
+                    "thunb_url": f"/thunbs/{image_name}.{extension}",
                 }
             )
 
-        if (name_file != ''):
+        if name_file != "":
             return Write.json(name_thunb, name_file)
         Write.json(name_thunb)
 

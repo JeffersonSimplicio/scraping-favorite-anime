@@ -2,11 +2,9 @@ from strategy.anime_strategy import AnimeStrategy
 from bs4 import BeautifulSoup
 
 
-class FavoritesAnimes():
+class FavoritesAnimes:
     def __init__(
-        self,
-        anime_strategy: AnimeStrategy,
-        soup: BeautifulSoup
+        self, anime_strategy: AnimeStrategy, soup: BeautifulSoup
     ) -> None:
         self.__anime_strategy = anime_strategy
         self.__soup = soup

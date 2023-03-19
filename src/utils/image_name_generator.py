@@ -1,6 +1,6 @@
 def image_name_generator(name: str) -> str:
-    chars = '.,!?'
+    chars = ".,!?"
     path = name.strip().lower()
     path = path.replace(" ", "_").replace(":", "_").replace("/", "_")
-    path = path.translate(str.maketrans('', '', chars))  # remove caracteres
+    path = path.translate(str.maketrans("", "", chars))  # remove caracteres
     return path
