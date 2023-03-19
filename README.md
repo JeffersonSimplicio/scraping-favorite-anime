@@ -52,7 +52,7 @@ Todo o projeto foi desenvolvido em **Python**, para garantir um ambiente isolado
   <summary id="source-code">
     <strong>Via código-fonte</strong>
   </summary>
-  Esta método é uma alternativa para usuários de Linux ou Mac<br>
+  Este método é uma alternativa para usuários de Linux ou Mac<br>
   Este procedimento <strong>não é recomendado</strong><br>
   Para usar esse método é preciso possuir o **python** instalado e recomendado o uso do venv
 
@@ -105,10 +105,10 @@ Todo o projeto foi desenvolvido em **Python**, para garantir um ambiente isolado
 </details>
 
 ## O que cada opção faz
-  - `1 - Lista de nomes(txt)`: Gera um arquivo como o nome *FavoritesAnimes.txt*, com o nome de todos os animes favoritados no site
- - `2 - Lista com nome e URL da thunb(txt)`: Gera um arquivo como o nome *FavoritesAnimes.txt*, com o nome de todos os animes favoritados no site e ao lado do nome a URL para sua capa
- - `3 - Lista com nome e URL da thunb(json)`: Gera um arquivo como o nome *FavoritesAnimes.json*, com uma lista de objetos contendo nome e URL da capa
- - `4 - Lista com nome e path da thumb(download da thunb)(json)`: Gera um arquivo como o nome *FavoritesAnimes.json* e também uma pasta *thunbs*, na pasta esta todas as capas dos animes favoritados, no .json está uma lista de objetos contendo nome e o path para capa na pasta thunbs
+  - `1 - Lista de nomes(txt)`: Gera um arquivo txt, com o nome de todos os animes favoritados no site
+ - `2 - Lista com nome e URL da thunb(txt)`: Gera um arquivo txt, com o nome de todos os animes favoritados no site e ao lado a URL para sua capa
+ - `3 - Lista com nome e URL da thunb(json)`: Gera um arquivo json, com uma lista de objetos contendo nome e URL da capa
+ - `4 - Lista com nome e path da thumb(download da thunb)(json)`: Gera um arquivo json e também uma pasta *thunbs*, na pasta esta todas as capas dos animes favoritados, no json está uma lista de objetos contendo nome e o path para capa na pasta thunbs
 
 ## Respondendo algumas duvidas
 <details>
