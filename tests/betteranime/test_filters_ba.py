@@ -4,7 +4,7 @@ from src.strategy.main import FavoritesAnimes
 from src.strategy.ba_strategy import BetterAnimeStrategy
 
 
-code = Read.file("tests\\betteranime\\fakes\\fake_full_ba_page.html") 
+code = Read.file("tests\\betteranime\\fakes\\fake_full_ba_page.html")
 soup = BeautifulSoup(code, "html.parser")
 better_anime = FavoritesAnimes(BetterAnimeStrategy, soup)
 
