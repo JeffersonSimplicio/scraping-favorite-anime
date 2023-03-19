@@ -15,12 +15,12 @@ def test_returns_to_total_number_of_favorites():
     assert total == 5
 
 
-# def test_name_all_unreturned_animes():
-#     expectation = ["Anime1", "Anime2", "Anime3", "Anime4", "Anime5"]
+def test_name_all_unreturned_animes():
+    expectation = ["Anime1", "Anime2", "Anime3", "Anime4", "Anime5"]
 
-#     list = better_anime.list_favorites_name()
+    list = better_anime.list_favorites_name()
 
-#     assert list == expectation
+    assert list == expectation
 
 
 # def test_returns_list_name_url():
