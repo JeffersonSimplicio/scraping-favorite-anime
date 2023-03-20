@@ -10,7 +10,7 @@ soup = BeautifulSoup(code, "html.parser")
 better_anime = FavoritesAnimes(BetterAnimeStrategy, soup)
 
 
-def test_create_file_names_favorites():
+def test_creation_txt_file_with_list_names():
     expectation = """Anime1
 Anime2
 Anime3
@@ -28,7 +28,7 @@ Anime5
     assert content == expectation
 
 
-def test_name_thunb_list_creation():
+def test_creation_txt_file_with_list_names_thumbs():
     expectation = """Anime1 - https://betteranime.com/anime1-img.jpg
 
 Anime2 - https://betteranime.com/anime2-img.jpg
