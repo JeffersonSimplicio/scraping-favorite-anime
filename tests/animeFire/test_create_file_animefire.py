@@ -54,18 +54,13 @@ def test_creation_json_file_with_list_names_thumbs():
     assert content == list_json_anime_names_url
 
 
-def test_creation_list_names_download_thumbs():  # falhando
+def test_creation_list_names_download_thumbs():
+    expectation_name_file = "name_local_favorites_animefire.json"
     animefire.create_json_list_favorites_local()
 
+    content = read_delete_file(expectation_name_file)
     result = listdir("thumbs")
     rmtree("thumbs")
 
     assert result == list_names_images
-
-
-def test_creation_json_file_with_list_names_path_thumbs():
-    expectation_name_file = "name_local_favorites_animefire.json"
-
-    content = read_delete_file(expectation_name_file)
-
     assert content == list_json_anime_names_path
