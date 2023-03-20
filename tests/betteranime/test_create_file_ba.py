@@ -1,4 +1,5 @@
-from os import remove
+from os import remove, listdir
+from shutil import rmtree
 from bs4 import BeautifulSoup
 from src.utils.readers import Read
 from src.strategy.main import FavoritesAnimes
@@ -73,3 +74,21 @@ def test_creation_json_file_with_list_names_thumbs():
     content = read_delete_file(expectation_name_file)
 
     assert content == expectation
+
+
+def test_creation_list_names_download_thumbs():
+    expectation_thumbs = [
+        "anime1.jpg",
+        "anime2.jpg",
+        "anime3.jpg",
+        "anime4.jpg",
+        "anime5.jpg",
+    ]
+    better_anime.create_json_list_favorites_local()
+    result = listdir("thunbs")
+    rmtree("thunbs")
+    # remove("name_local_favorites_betteranime.json")
+    assert result == expectation_thumbs
+
+
+# def test_creation_json_file_with_list_names_path_thumbs():
