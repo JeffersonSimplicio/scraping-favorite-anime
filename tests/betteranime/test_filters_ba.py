@@ -27,6 +27,6 @@ def test_name_all_unreturned_animes():
 
 
 def test_returns_list_name_url():
-    list = better_anime.list_name_thunb()
+    list = better_anime.list_name_thumb()
 
     assert list == array_animes_names_thumbs

@@ -21,28 +21,28 @@ Anime5 - https://betteranime.com/anime5-img.jpg
 
 list_json_anime_names_url = (
     """[{"name": "Anime1", """
-    + """"thunb_url": "https://betteranime.com/anime1-img.jpg"}, """
+    + """"thumb_url": "https://betteranime.com/anime1-img.jpg"}, """
     + """{"name": "Anime2", """
-    + """"thunb_url": "https://betteranime.com/anime2-img.jpg"}, """
+    + """"thumb_url": "https://betteranime.com/anime2-img.jpg"}, """
     + """{"name": "Anime3", """
-    + """"thunb_url": "https://betteranime.com/anime3-img.jpg"}, """
+    + """"thumb_url": "https://betteranime.com/anime3-img.jpg"}, """
     + """{"name": "Anime4", """
-    + """"thunb_url": "https://betteranime.com/anime4-img.jpg"}, """
+    + """"thumb_url": "https://betteranime.com/anime4-img.jpg"}, """
     + """{"name": "Anime5", """
-    + """"thunb_url": "https://betteranime.com/anime5-img.jpg"}]"""
+    + """"thumb_url": "https://betteranime.com/anime5-img.jpg"}]"""
 )
 
 list_json_anime_names_path = (
     """[{"name": "Anime1", """
-    + """"thunb_url": "/thunbs/anime1.jpg"}, """
+    + """"thumb_url": "/thumbs/anime1.jpg"}, """
     + """{"name": "Anime2", """
-    + """"thunb_url": "/thunbs/anime2.jpg"}, """
+    + """"thumb_url": "/thumbs/anime2.jpg"}, """
     + """{"name": "Anime3", """
-    + """"thunb_url": "/thunbs/anime3.jpg"}, """
+    + """"thumb_url": "/thumbs/anime3.jpg"}, """
     + """{"name": "Anime4", """
-    + """"thunb_url": "/thunbs/anime4.jpg"}, """
+    + """"thumb_url": "/thumbs/anime4.jpg"}, """
     + """{"name": "Anime5", """
-    + """"thunb_url": "/thunbs/anime5.jpg"}]"""
+    + """"thumb_url": "/thumbs/anime5.jpg"}]"""
 )
 
 list_names_images = [
@@ -56,22 +56,22 @@ list_names_images = [
 array_animes_names_thumbs = [
     {
         "name": "Anime1",
-        "thunb_url": "https://betteranime.com/anime1-img.jpg",
+        "thumb_url": "https://betteranime.com/anime1-img.jpg",
     },
     {
         "name": "Anime2",
-        "thunb_url": "https://betteranime.com/anime2-img.jpg",
+        "thumb_url": "https://betteranime.com/anime2-img.jpg",
     },
     {
         "name": "Anime3",
-        "thunb_url": "https://betteranime.com/anime3-img.jpg",
+        "thumb_url": "https://betteranime.com/anime3-img.jpg",
     },
     {
         "name": "Anime4",
-        "thunb_url": "https://betteranime.com/anime4-img.jpg",
+        "thumb_url": "https://betteranime.com/anime4-img.jpg",
     },
     {
         "name": "Anime5",
-        "thunb_url": "https://betteranime.com/anime5-img.jpg",
+        "thumb_url": "https://betteranime.com/anime5-img.jpg",
     },
 ]

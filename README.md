@@ -2,7 +2,7 @@
 
 ## O que há de novo?
 * Suporte ao BetterAnime e Anihub
-* Corrigida falha de download das thunbs
+* Corrigida falha de download das thumbs
 * Gera arquivos vazios agora exigem confirmação do usuário
 * CLI mais limpa
 * Agora cada arquivo gerado possui um nome exclusivo
@@ -102,9 +102,9 @@ Todo o projeto foi desenvolvido em **[Python](https://www.python.org/)**, o **[V
 
 ## O que cada opção faz
  - `1 - Lista de nomes(txt)`: Gera um arquivo txt, com o nome de todos os animes favoritados no site
- - `2 - Lista com nome e URL da thunb(txt)`: Gera um arquivo txt, com o nome de todos os animes favoritados no site e ao lado a URL para sua capa
- - `3 - Lista com nome e URL da thunb(json)`: Gera um arquivo json, com uma lista de objetos contendo nome e URL da capa
- - `4 - Lista com nome e path da thumb(download da thunb)(json)`: Gera um arquivo json e também uma pasta *thunbs*, na pasta esta todas as capas dos animes favoritados, no json está uma lista de objetos contendo nome e o path para capa na pasta thunbs
+ - `2 - Lista com nome e URL da thumb(txt)`: Gera um arquivo txt, com o nome de todos os animes favoritados no site e ao lado a URL para sua capa
+ - `3 - Lista com nome e URL da thumb(json)`: Gera um arquivo json, com uma lista de objetos contendo nome e URL da capa
+ - `4 - Lista com nome e path da thumb(download da thumb)(json)`: Gera um arquivo json e também uma pasta *thumbs*, na pasta esta todas as capas dos animes favoritados, no json está uma lista de objetos contendo nome e o path para capa na pasta thumbs
 
 ## Respondendo algumas duvidas
 <details>

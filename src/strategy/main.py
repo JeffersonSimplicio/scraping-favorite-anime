@@ -19,8 +19,8 @@ class FavoritesAnimes:
     def list_favorites_name(self) -> list:
         return self.__anime_strategy.list_favorites_name(self.__soup)
 
-    def list_name_thunb(self) -> list:
-        return self.__anime_strategy.list_name_thunb(self.__soup)
+    def list_name_thumb(self) -> list:
+        return self.__anime_strategy.list_name_thumb(self.__soup)
 
     # Create file
     def create_txt_list_favorites(self) -> None:

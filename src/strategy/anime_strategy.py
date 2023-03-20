@@ -21,7 +21,7 @@ class AnimeStrategy(ABC):  # Interface
         raise NotImplementedError
 
     @abstractmethod
-    def __get_thunb(cls, anime: str) -> str:
+    def __get_thumb(cls, anime: str) -> str:
         raise NotImplementedError
 
     # Get data from HTML
@@ -40,14 +40,14 @@ class AnimeStrategy(ABC):  # Interface
         return names_list
 
     @staticmethod
-    def list_name_thunb(get_cards, get_name, get_thunb) -> list:
+    def list_name_thumb(get_cards, get_name, get_thumb) -> list:
         favorites_list = get_cards
-        name_thunb = []
+        name_thumb = []
         for anime in favorites_list:
             name = get_name(anime)
-            thunb_url = get_thunb(anime)
-            name_thunb.append({"name": name, "thunb_url": thunb_url})
-        return name_thunb
+            thumb_url = get_thumb(anime)
+            name_thumb.append({"name": name, "thumb_url": thumb_url})
+        return name_thumb
 
     # Create file
     @staticmethod
@@ -60,11 +60,11 @@ class AnimeStrategy(ABC):  # Interface
 
     @staticmethod
     def create_txt_list_favorites_url(
-        list_name_thunb, name_file: str = ""
+        list_name_thumb, name_file: str = ""
     ) -> None:
-        list_animes = list_name_thunb
+        list_animes = list_name_thumb
         format_list = [
-            f'{anime["name"]} - {anime["thunb_url"]}\n'
+            f'{anime["name"]} - {anime["thumb_url"]}\n'
             for anime in list_animes
         ]
         if name_file != "":
@@ -73,39 +73,39 @@ class AnimeStrategy(ABC):  # Interface
 
     @staticmethod
     def create_json_list_favorites_url(
-        list_name_thunb, name_file: str = ""
+        list_name_thumb, name_file: str = ""
     ) -> None:
         if name_file != "":
-            return Write.json(list_name_thunb, name_file)
-        Write.json(list_name_thunb)
+            return Write.json(list_name_thumb, name_file)
+        Write.json(list_name_thumb)
 
     @staticmethod
     def create_json_list_favorites_local(
-        list_name_thunb, name_file: str = "", extension: str = "jpg"
+        list_name_thumb, name_file: str = "", extension: str = "jpg"
     ) -> None:
         print("Por favor, aguarde! Isso pode demorar um pouco...")
 
         try:
-            mkdir("./thunbs")
+            mkdir("./thumbs")
         except FileExistsError:
-            rmtree("./thunbs")
-            mkdir("./thunbs")
+            rmtree("./thumbs")
+            mkdir("./thumbs")
 
-        name_thunb = []
+        name_thumb = []
 
-        for anime in list_name_thunb:
+        for anime in list_name_thumb:
             image_name = image_name_generator(anime["name"])
-            Write.img(anime["thunb_url"], image_name, extension)
-            name_thunb.append(
+            Write.img(anime["thumb_url"], image_name, extension)
+            name_thumb.append(
                 {
                     "name": anime["name"],
-                    "thunb_url": f"/thunbs/{image_name}.{extension}",
+                    "thumb_url": f"/thumbs/{image_name}.{extension}",
                 }
             )
 
         if name_file != "":
-            return Write.json(name_thunb, name_file)
-        Write.json(name_thunb)
+            return Write.json(name_thumb, name_file)
+        Write.json(name_thumb)
 
     @abstractmethod
     def identifier(code: BeautifulSoup) -> bool:

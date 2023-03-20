@@ -57,8 +57,8 @@ def test_creation_json_file_with_list_names_thumbs():
 def test_creation_list_names_download_thumbs():
     better_anime.create_json_list_favorites_local()
 
-    result = listdir("thunbs")
-    rmtree("thunbs")
+    result = listdir("thumbs")
+    rmtree("thumbs")
 
     assert result == list_names_images
 

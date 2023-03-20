@@ -62,9 +62,9 @@ Qual opção escolhida(Padrão - 1): """
         option = ["", "1", "2", "3", "4"]
         text = """Opções disponíveis:
 1 - Lista de nomes(txt)
-2 - Lista com nome e URL da thunb(txt)
-3 - Lista com nome e URL da thunb(json)
-4 - Lista com nome e path da thumb(download da thunb)(json)
+2 - Lista com nome e URL da thumb(txt)
+3 - Lista com nome e URL da thumb(json)
+4 - Lista com nome e path da thumb(download da thumb)(json)
 
 Qual opção escolhida?(Padrão - 2) """
 

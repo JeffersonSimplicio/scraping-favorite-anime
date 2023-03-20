@@ -25,11 +25,11 @@ class AnimeFireStrategy(AnimeStrategy):
         return name
 
     @staticmethod
-    def __get_thunb(anime: str) -> str:
-        thunb = anime.select_one(
+    def __get_thumb(anime: str) -> str:
+        thumb = anime.select_one(
             "img.card-img-top.imgAnimes.transitioning_src"
         )["src"]
-        return thunb
+        return thumb
 
     # Get data from HTML
     @classmethod
@@ -45,9 +45,9 @@ class AnimeFireStrategy(AnimeStrategy):
         return super().list_favorites_name(cls.__get_names(code))
 
     @classmethod
-    def list_name_thunb(cls, code: BeautifulSoup) -> list:
-        return super().list_name_thunb(
-            cls.__get_cards(code), cls.__get_name, cls.__get_thunb
+    def list_name_thumb(cls, code: BeautifulSoup) -> list:
+        return super().list_name_thumb(
+            cls.__get_cards(code), cls.__get_name, cls.__get_thumb
         )
 
     # Create file
@@ -61,21 +61,21 @@ class AnimeFireStrategy(AnimeStrategy):
     @classmethod
     def create_txt_list_favorites_url(cls, code: BeautifulSoup) -> None:
         return super().create_txt_list_favorites_url(
-            cls.list_name_thunb(code),
+            cls.list_name_thumb(code),
             f"name_url_{cls.DEFAULT_NAME}{cls.TYPE_TXT}",
         )
 
     @classmethod
     def create_json_list_favorites_url(cls, code: BeautifulSoup) -> None:
         return super().create_json_list_favorites_url(
-            cls.list_name_thunb(code),
+            cls.list_name_thumb(code),
             f"name_url_{cls.DEFAULT_NAME}{cls.TYPE_JSON}",
         )
 
     @classmethod
     def create_json_list_favorites_local(cls, code: BeautifulSoup) -> None:
         return super().create_json_list_favorites_local(
-            cls.list_name_thunb(code),
+            cls.list_name_thumb(code),
             f"name_local_{cls.DEFAULT_NAME}{cls.TYPE_JSON}",
             "webp",
         )
