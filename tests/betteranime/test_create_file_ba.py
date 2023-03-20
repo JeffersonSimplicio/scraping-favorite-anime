@@ -84,11 +84,30 @@ def test_creation_list_names_download_thumbs():
         "anime4.jpg",
         "anime5.jpg",
     ]
+
     better_anime.create_json_list_favorites_local()
+
     result = listdir("thunbs")
     rmtree("thunbs")
-    # remove("name_local_favorites_betteranime.json")
+
     assert result == expectation_thumbs
 
 
-# def test_creation_json_file_with_list_names_path_thumbs():
+def test_creation_json_file_with_list_names_path_thumbs():
+    expectation = (
+        """[{"name": "Anime1", """
+        + """"thunb_url": "/thunbs/anime1.jpg"}, """
+        + """{"name": "Anime2", """
+        + """"thunb_url": "/thunbs/anime2.jpg"}, """
+        + """{"name": "Anime3", """
+        + """"thunb_url": "/thunbs/anime3.jpg"}, """
+        + """{"name": "Anime4", """
+        + """"thunb_url": "/thunbs/anime4.jpg"}, """
+        + """{"name": "Anime5", """
+        + """"thunb_url": "/thunbs/anime5.jpg"}]"""
+    )
+    expectation_name_file = "name_local_favorites_betteranime.json"
+
+    content = read_delete_file(expectation_name_file)
+
+    assert content == expectation
