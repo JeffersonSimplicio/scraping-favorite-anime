@@ -10,22 +10,26 @@ soup = BeautifulSoup(code, "html.parser")
 better_anime = FavoritesAnimes(BetterAnimeStrategy, soup)
 
 
+def read_delete_file(path: str) -> str:
+    code = Read.file(path)
+    remove(path)
+    return code
+
+
 def test_creation_txt_file_with_list_names():
-    expectation = """Anime1
+    expectation_result = """Anime1
 Anime2
 Anime3
 Anime4
 Anime5
 """
+    expectation_name_file = "name_favorites_betteranime.txt"
 
     better_anime.create_txt_list_favorites()
 
-    file = open("name_favorites_betteranime.txt", mode="r")
-    content = file.read()
-    file.close()
-    remove("name_favorites_betteranime.txt")
+    content = read_delete_file(expectation_name_file)
 
-    assert content == expectation
+    assert content == expectation_result
 
 
 def test_creation_txt_file_with_list_names_thumbs():
@@ -40,12 +44,32 @@ Anime4 - https://betteranime.com/anime4-img.jpg
 Anime5 - https://betteranime.com/anime5-img.jpg
 
 """
+    expectation_name_file = "name_url_favorites_betteranime.txt"
 
     better_anime.create_txt_list_favorites_url()
 
-    file = open("name_url_favorites_betteranime.txt", mode="r")
-    content = file.read()
-    file.close()
-    remove("name_url_favorites_betteranime.txt")
+    content = read_delete_file(expectation_name_file)
+
+    assert content == expectation
+
+
+def test_creation_json_file_with_list_names_thumbs():
+    expectation = (
+        """[{"name": "Anime1", """
+        + """"thunb_url": "https://betteranime.com/anime1-img.jpg"}, """
+        + """{"name": "Anime2", """
+        + """"thunb_url": "https://betteranime.com/anime2-img.jpg"}, """
+        + """{"name": "Anime3", """
+        + """"thunb_url": "https://betteranime.com/anime3-img.jpg"}, """
+        + """{"name": "Anime4", """
+        + """"thunb_url": "https://betteranime.com/anime4-img.jpg"}, """
+        + """{"name": "Anime5", """
+        + """"thunb_url": "https://betteranime.com/anime5-img.jpg"}]"""
+    )
+    expectation_name_file = "name_url_favorites_betteranime.json"
+
+    better_anime.create_json_list_favorites_url()
+
+    content = read_delete_file(expectation_name_file)
 
     assert content == expectation
