@@ -24,3 +24,21 @@ def test_returns_true_when_supported():
     assert result_ba is True
     assert result_anihub is True
     assert result_af is True
+
+
+def test_returns_true_when_not_supported():
+    result_ba_one = BetterAnimeStrategy.identifier(soup_anihub)
+    result_ba_two = BetterAnimeStrategy.identifier(soup_af)
+
+    result_anihub_one = AnihubStrategy.identifier(soup_af)
+    result_anihub_two = AnihubStrategy.identifier(soup_ba)
+
+    result_af_one = AnimeFireStrategy.identifier(soup_ba)
+    result_af_two = AnimeFireStrategy.identifier(soup_anihub)
+
+    assert result_ba_one is False
+    assert result_ba_two is False
+    assert result_anihub_one is False
+    assert result_anihub_two is False
+    assert result_af_one is False
+    assert result_af_two is False
