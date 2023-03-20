@@ -81,7 +81,7 @@ class AnihubStrategy(AnimeStrategy):
 
     @staticmethod
     def identifier(code: BeautifulSoup) -> bool:
-        if code.select_one("h1.cover-photo"):
+        if code.select_one("div.cover-photo"):
             return True
         elif code.select_one("div.grid4.t-center"):
             return True
