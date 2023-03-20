@@ -7,8 +7,7 @@ class Write:
     def txt(animes_list: list, name_file: str = "FavoritesAnimes.txt") -> None:
         with open(name_file, "w", encoding="utf-8") as file:
             for anime in animes_list:
-                no_space_anime = anime.strip()
-                file.write(f"{no_space_anime}\n")
+                file.write(f"{anime}\n")
         print("Escrita concluída")
 
     @staticmethod
