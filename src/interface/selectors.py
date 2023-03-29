@@ -3,6 +3,9 @@ from src.utils.readers import Read
 from src.utils.web_site_identifier import web_site_identifier
 from src.strategy.list_stratege import Strategys
 from src.interface.console import Console
+from src.interface.style.main_style import MainStyle
+
+selectors_style = MainStyle()
 
 
 class Selectors:
@@ -23,7 +26,11 @@ class Selectors:
                 code = Read.file(path)
                 return code
             except FileNotFoundError:
-                print("Arquivo não encontrado")
+                print(
+                    selectors_style.fail
+                    + "Arquivo não encontrado"
+                    + selectors_style.reset
+                )
 
     @classmethod
     def filter(cls, soup: BeautifulSoup):
@@ -39,7 +46,11 @@ class Selectors:
 
 Qual opção escolhida(Padrão - 1): """
 
-            print("Não foi possível identificar a qual site pertence o código")
+            print(
+                selectors_style.fail
+                + "Não foi possível identificar a qual site pertence o código"
+                + selectors_style.reset
+            )
 
             while True:
                 try:
@@ -55,7 +66,11 @@ Qual opção escolhida(Padrão - 1): """
                         Console.clear()
                         return filter
                 except ValueError:
-                    print("Selecione uma opção valida!")
+                    print(
+                        selectors_style.alert
+                        + "Selecione uma opção valida!"
+                        + selectors_style.reset
+                    )
 
     @classmethod
     def options(cls) -> None:
@@ -83,4 +98,8 @@ Qual opção escolhida?(Padrão - 2) """
                 Console.clear()
                 raise ValueError
             except ValueError:
-                print("Selecione uma opção valida!")
+                print(
+                    selectors_style.alert
+                    + "Selecione uma opção valida!"
+                    + selectors_style.reset
+                )

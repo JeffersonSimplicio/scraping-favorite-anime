@@ -1,4 +1,7 @@
 from src.strategy.main import FavoritesAnimes
+from src.interface.style.main_style import MainStyle
+
+controls_style = MainStyle()
 
 
 class Controls:
@@ -12,7 +15,11 @@ class Controls:
         elif selected == 4:
             favorite.create_json_list_favorites_local()
         else:
-            print("Opção inexistente!")
+            print(
+                controls_style.fail
+                + "Opção inexistente!"
+                + controls_style.reset
+            )
 
     def empty_file(total: int) -> bool:
         if total == 0:
@@ -34,6 +41,10 @@ class Controls:
                         return True
                     elif response[0] == option[2]:
                         return False
-                except ValueError:
-                    print("Selecione uma opção valida!")
+                except ValueError: 
+                    print(
+                        controls_style.alert
+                        + "Selecione uma opção valida!"
+                        + controls_style.reset
+                    )
         return True
