@@ -41,7 +41,7 @@ class Controls:
                         return True
                     elif response[0] == option[2]:
                         return False
-                except ValueError: 
+                except ValueError:
                     print(
                         controls_style.alert
                         + "Selecione uma opção valida!"

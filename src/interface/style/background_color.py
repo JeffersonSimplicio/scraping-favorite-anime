@@ -21,8 +21,8 @@ class BackgroundColor(Enum):
     WHITE = 107
 
 
-if __name__ == '__main__':
-    print('Demonstração...')
+if __name__ == "__main__":
+    print("Demonstração...")
     print("\033[49mMensagem personalizada, numero = 49\033[0m")
     print("\033[40mMensagem personalizada, numero = 40\033[0m")
     print("\033[41mMensagem personalizada, numero = 41\033[0m")

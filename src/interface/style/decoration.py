@@ -13,8 +13,8 @@ class Decoration(Enum):
     TACHADO = 9
 
 
-if __name__ == '__main__':
-    print('Demonstração...')
+if __name__ == "__main__":
+    print("Demonstração...")
     print("\033[1mMensagem personalizada, numero = 0\033[0m")
     print("\033[2mMensagem personalizada, numero = 1\033[0m")
     print("\033[3mMensagem personalizada, numero = 2\033[0m")

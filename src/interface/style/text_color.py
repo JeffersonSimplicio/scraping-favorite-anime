@@ -21,8 +21,8 @@ class TextColor(Enum):
     WHITE = 97
 
 
-if __name__ == '__main__':
-    print('Demonstração...')
+if __name__ == "__main__":
+    print("Demonstração...")
     print("\033[39mMensagem personalizada, numero = 39\033[0m")
     print("\033[30mMensagem personalizada, numero = 30\033[0m")
     print("\033[31mMensagem personalizada, numero = 31\033[0m")
