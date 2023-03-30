@@ -103,3 +103,34 @@ Qual opção escolhida?(Padrão - 2) """
                     + "Selecione uma opção valida!"
                     + selectors_style.reset
                 )
+
+    @classmethod
+    def willContinue(cls) -> bool:
+        option = ["", "S", "N"]
+        text = (
+            "Deseja gerar uma nova lista, "
+            + "baseado no mesmo site?(S/N) - Padrão N"
+        )
+        while True:
+            try:
+                selected = str(input(text)).strip().upper()
+                if selected in option:
+                    if selected == option[0]:
+                        Console.self_destruct_message(
+                            "Foi selecionada a opção padrão - opção N",
+                            cls.DELAY_TIME,
+                        )
+                        Console.clear()
+                        return False
+                    else:
+                        Console.clear()
+                        return selected == option[1]
+                Console.clear()
+                raise ValueError
+            except ValueError:
+                print(
+                    selectors_style.alert
+                    + "Selecione uma opção valida!"
+                    + selectors_style.reset
+                )
+                Console.clear(1)

@@ -15,12 +15,18 @@ def interface():
 
     total_favorites = filterAnime.len_favorites()
 
-    Console.total_favorites(total_favorites)
+    while True:
+        Console.total_favorites(total_favorites)
 
-    selected = Selectors.options()
+        selected = Selectors.options()
 
-    response = Controls.empty_file(total_favorites)
+        response = Controls.empty_file(total_favorites)
 
-    if response:
-        Controls.operation(filterAnime, selected)
-    Console.clear(1)
+        if response:
+            Controls.operation(filterAnime, selected)
+        Console.clear(1)
+
+        continua = Selectors.willContinue()
+
+        if not continua:
+            break
