@@ -66,11 +66,7 @@ Qual opção escolhida(Padrão - 1): """
                         Console.clear()
                         return filter
                 except ValueError:
-                    print(
-                        selectors_style.alert
-                        + "Selecione uma opção valida!"
-                        + selectors_style.reset
-                    )
+                    Console.alert("Selecione uma opção valida!")
 
     @classmethod
     def options(cls) -> None:
@@ -98,11 +94,7 @@ Qual opção escolhida?(Padrão - 2) """
                 Console.clear()
                 raise ValueError
             except ValueError:
-                print(
-                    selectors_style.alert
-                    + "Selecione uma opção valida!"
-                    + selectors_style.reset
-                )
+                Console.alert("Selecione uma opção valida!")
 
     @classmethod
     def willContinue(cls) -> bool:
@@ -128,9 +120,4 @@ Qual opção escolhida?(Padrão - 2) """
                 Console.clear()
                 raise ValueError
             except ValueError:
-                print(
-                    selectors_style.alert
-                    + "Selecione uma opção valida!"
-                    + selectors_style.reset
-                )
-                Console.clear(1)
+                Console.alert("Selecione uma opção valida!")

@@ -1,5 +1,8 @@
 import os
 from time import sleep
+from src.interface.style.main_style import MainStyle
+
+console_style = MainStyle()
 
 
 class Console:
@@ -21,3 +24,9 @@ class Console:
     def self_destruct_message(cls, msg: str, seconds: int):
         print(msg)
         cls.clear(seconds)
+
+    @staticmethod
+    def alert(cls, msg: str, seconds: int = -1) -> None:
+        print(console_style.alert + msg + console_style.reset)
+        if seconds > 0:
+            cls.clear(seconds)

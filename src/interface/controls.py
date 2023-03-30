@@ -1,5 +1,7 @@
 from src.strategy.main import FavoritesAnimes
 from src.interface.style.main_style import MainStyle
+from src.interface.console import Console
+
 
 controls_style = MainStyle()
 
@@ -42,9 +44,5 @@ class Controls:
                     elif response[0] == option[2]:
                         return False
                 except ValueError:
-                    print(
-                        controls_style.alert
-                        + "Selecione uma opção valida!"
-                        + controls_style.reset
-                    )
+                    Console.alert("Selecione uma opção valida!")
         return True
