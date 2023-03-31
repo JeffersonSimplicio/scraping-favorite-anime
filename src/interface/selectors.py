@@ -1,6 +1,7 @@
 from bs4 import BeautifulSoup
 from src.utils.readers import Read
 from src.utils.web_site_identifier import web_site_identifier
+from src.utils.create_list_options import create_list_options
 from src.strategy.list_stratege import Strategys
 from src.interface.console import Console
 from src.interface.style.main_style import MainStyle
@@ -14,14 +15,19 @@ class Selectors:
     @classmethod
     def file(cls) -> str:
         DEFAULT_PATH = "favorites-list-page.html"
-        text = f"Qual arquivo deseja utilizar?({DEFAULT_PATH}) "
+        text = (
+            "Qual arquivo deseja utilizar?"
+            + selectors_style.default_value
+            + f"({DEFAULT_PATH}) "
+            + selectors_style.reset
+        )
         while True:
             try:
                 path_file = str(input(text)).strip()
                 path = DEFAULT_PATH if path_file == "" else path_file
                 if path_file == DEFAULT_PATH:
                     Console.self_destruct_message(
-                        "Foi selecionado o arquivo padrão", cls.DELAY_TIME
+                        "Foi selecionado o arquivo padrão ", cls.DELAY_TIME
                     )
                 code = Read.file(path)
                 return code
@@ -38,14 +44,7 @@ class Selectors:
             filter = web_site_identifier(soup)
             return filter
         except ValueError:
-            option = ["", "BetterAnime", "Anihub", "AnimeFire"]
-            text = """Filtros disponíveis:
-1 - BetterAnime
-2 - Anihub
-3 - AnimeFire
-
-Qual opção escolhida(Padrão - 1): """
-
+            option = create_list_options()
             print(
                 selectors_style.fail
                 + "Não foi possível identificar a qual site pertence o código"
@@ -54,7 +53,14 @@ Qual opção escolhida(Padrão - 1): """
 
             while True:
                 try:
-                    selected = str(input(text)).strip()
+                    print("Filtros disponíveis:")
+                    for i, web in enumerate(Strategys):
+                        print(f"{i + 1} - {web.name}")
+
+                    selected = str(input(
+                        "\nQual opção escolhida(Padrão - 1): "
+                    )).strip()
+
                     if selected in option:
                         if selected == option[0]:
                             Console.self_destruct_message(
