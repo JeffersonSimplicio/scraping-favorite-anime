@@ -14,6 +14,10 @@ class MainStyle:
             TextColor.RED.value,
             BackgroundColor.YELLOW.value,
         )
+        self.__default_value = "\033[{};{}m".format(
+            Decoration.BOLD.value,
+            Decoration.ITALIC.value,
+        )
 
     @staticmethod
     def __unalterable_message():
@@ -73,4 +77,17 @@ class MainStyle:
 
     @alert.deleter
     def alert(self):
+        self.__undeletable_message()
+
+    # Default Value
+    @property
+    def default_value(self):
+        return self.__default_value
+
+    @default_value.setter
+    def default_value(self):
+        self.__unalterable_message()
+
+    @default_value.deleter
+    def default_value(self):
         self.__undeletable_message()

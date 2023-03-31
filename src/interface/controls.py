@@ -30,7 +30,8 @@ class Controls:
                 "Você não possui animes favoritos, "
                 + "o arquivo gerado sera vazio\n"
                 + "Deseja gerar o arquivo mesmo assim?"
-                + "(s/n)(Padrão - Não): "
+                + "(S/"
+                + f"{controls_style.default_value}N{controls_style.reset}): "
             )
 
             while True:
